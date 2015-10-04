@@ -122,7 +122,7 @@ class StarCatalog(object):
             yMaxnum = float(declinationCenterPoint+fieldOfView/2)       #calculate the Max number in the y axle
             yMinnum = float(declinationCenterPoint-fieldOfView/2)       #calculate the Min number in the y axle
             
-            with open(path) as f:
+            with open(starFile1) as f:
                 j = 0
                 content = f.read()
                 for i in content.splitlines():
@@ -144,7 +144,7 @@ class StarCatalog(object):
                         #raise ValueError("Invalid input")
                 #print "There are ",j,"stars in the square." 
                 print list2              
-#                minbr = min(list2)
+                #minbr = min(list2)
                 minbr = 9999
                 for k in list2:
                     if float(minbr) > float(k):
