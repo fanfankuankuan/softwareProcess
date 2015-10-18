@@ -4,13 +4,13 @@ def calc(number):
 
     if number < 2: 
         return []
-    number = num(number)
 
     g = g2(number)
     return g
 
 def num(number):
     number = number + 1
+    return number
     
     # CITATION: Sieve of Eratosthenes
     # Create list of all numbers up to max
@@ -26,21 +26,25 @@ def fn(number):
     return f
 
 def tem(number):
-    f = fn(number)
-    for temp1 in range(2, int(math.sqrt(number) + 1)):
+    a = num(number)
+    f = fn(a)
+    for temp1 in range(2, int(math.sqrt(a) + 1)):
         if f[temp1]:
-            for temp2 in range(2 * temp1, number, temp1):
+            for temp2 in range(2 * temp1, a, temp1):
                 f[temp2] = False
     return f
 
 def nem(number):
+    a = num(number)
     f = tem(number)
     n = 0
-    for temp in range(0, number):
+    for temp in range(0, a):
         if f[temp]:
             n = n + 1
     return n
+
 def g1(number):
+   
     n = nem(number)
     g = []
     for temp in range(0, n):
@@ -48,10 +52,11 @@ def g1(number):
     return g
 
 def g2(number):
+    a = num(number)
     f = tem(number)
     g = g1(number)
     temp2 = 0
-    for temp1 in range (0, number):
+    for temp1 in range (0, a):
         if f[temp1]:
             g[temp2] = temp1
             temp2 = temp2 + 1
