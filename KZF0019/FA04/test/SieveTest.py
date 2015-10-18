@@ -1,7 +1,6 @@
 
 import unittest
-from Sieve.prod.Sieve import calc
-
+from FA04.prod.Sieve import calc
 
 class SieveTest(unittest.TestCase):
 
