@@ -16,8 +16,8 @@ class StarSensorTest(unittest.TestCase):
         self.myEnv.setRotationalPeriod(int(60 / 6 * 1000000))
         self.myStarSensor = StarSensor.StarSensor((10.0 / 360.0) * 2.0 * math.pi)
         self.myStarSensor.configure(self.myEnv)
-        self.starCatalog1 = {'file': 'SaoChart.txt', 'count': 9040}
-        self.starCatalog2 = {'file': 'CA02StarTestChart.txt', 'count': 9040}
+        self.starCatalog1 = {'file': 'Sao.txt', 'count': 9040}
+        self.starCatalog2 = {'file': 'Data.txt', 'count': 9040}
         self.time2Orbit = int(((23 * 60 * 60) + (56 * 60) + (4.1)) * 1000000)
 
     def tearDown(self):
@@ -117,7 +117,7 @@ class StarSensorTest(unittest.TestCase):
         position = self.myStarSensor.getSensorPosition()
         for item in range(1):
             self.assertAlmostEqual(position[item], sensorPosition[item], 5)
-            
+             
     def test_400_060_ShouldGetPositionAtMultipleOrbits(self):
         self.myEnv.incrementTime(self.time2Orbit + 42)
         sensorPosition = [4.71238898344738, 0.565460288267873]

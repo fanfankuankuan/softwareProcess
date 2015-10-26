@@ -8,6 +8,7 @@ import types
 from CA02.prod import Environment as En
 from genericpath import isfile
 
+
 class StarSensor(object):
     env = None
     def __init__(self, fieldOfView=None):
@@ -17,7 +18,7 @@ class StarSensor(object):
             raise ValueError("StarSensor.__init__:fieldOfView invalid")
         self.fieldView = fieldOfView
         
-    def initializeSensor(self, starFile):
+    def initializeSensor(self, starFile =None):
         starCount = 0
         if(starFile == None):
             raise ValueError("StarSensor.initializeSensor:  invalid file type")
@@ -44,9 +45,11 @@ class StarSensor(object):
             fr.close()
     def StarSensor(self,fieldview=None):
         self.fieldView = fieldview
-    def configure(self, environment):
+    def configure(self, environment= None):
         if not(isinstance(environment, En.Environment)):
             raise ValueError("StarSensor.configure:file is invalid")
+        if (environment == None):
+            raise ValueError("StarSensor.configure:file is empty.")
         self.env = environment
         return True
     
@@ -66,7 +69,7 @@ class StarSensor(object):
             yMaxnum = float(declination+self.fieldView/2)       #calculate the Max number in the y axle
             yMinnum = float(declination-self.fieldView/2)       #calculate the Min number in the y axle
             
-            with open("Sao.txt") as f:
+            with open("SaoChart.txt") as f:
                 j = 0
                 content = f.read()
                 for i in content.splitlines():
