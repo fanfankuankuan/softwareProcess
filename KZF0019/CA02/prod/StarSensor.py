@@ -59,8 +59,8 @@ class StarSensor(object):
         list2 = []
         list3 = []
         list4 = []
-        rightAscension = math.pi/2 + self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
-        declination = self.env.getTime() * 2 * math.pi / (86164.1*1000000)
+        rightAscension = math.pi/2 + En.Environment.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
+        declination = En.Environment.getTime() * 2 * math.pi / (86164.1*1000000)
         for i in range(0,99999,1):
             if rightAscension >= 2*math.pi:
                 rightAscension = rightAscension-2*math.pi
