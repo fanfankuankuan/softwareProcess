@@ -13,23 +13,25 @@ class controller(object):
         pass 
     def initialize(self,architectureFile):
         if(architectureFile == None):
-            raise ValueError("controller.architectureFile:  invalid file type")
+            raise ValueError("Controller.architectureFile:  invalid file type")
             return []
         if not(isinstance(architectureFile, types.StringType)):
-            raise ValueError("controller.architectureFile:  invalid file name")
+            raise ValueError("Controller.architectureFile:  invalid file name")
         if not isfile(architectureFile):
-            raise ValueError("controller.architectureFile:  no file exists by the specified file name")
+            raise ValueError("Controller.architectureFile:  no file exists by the specified file name")
         dom = xml.dom.minidom.parse('abc.xml')
 
         
         pass
     def configure(self,environment):
         if not(isinstance(environment, En.Environment)):
-            raise ValueError("StarSensor.configure:file is invalid")
+            raise ValueError("Controller.configure:  file is invalid")
         self.env = environment
         return True
 
     def run(self,microseconds):
-        
-        return True
+        if microseconds == None:
+            raise ValueError("Controller.run:  input is invalid.")
+            
+        return microseconds
     

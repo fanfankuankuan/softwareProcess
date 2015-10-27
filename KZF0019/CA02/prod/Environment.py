@@ -14,21 +14,21 @@ class Environment(object):
     
     def incrementTime(self, microseconds):
         if microseconds == None:
-            raise ValueError("Environment.incrementTime: param microseconds is needed")
+            raise ValueError("Environment.incrementTime:  param microseconds is needed")
         if not isinstance(microseconds, int):
-            raise ValueError("Environment.incrementTime: param microseconds must be a integer")
+            raise ValueError("Environment.incrementTime:  param microseconds must be a integer")
         if microseconds < 0:
-            raise ValueError("Environment.incrementTime: param microseconds must be GE 0")
+            raise ValueError("Environment.incrementTime:  param microseconds must be GE 0")
         self.simulatedClock += microseconds
         return self.simulatedClock
     
     def setRotationalPeriod(self, microseconds):
         if microseconds == None:
-            raise ValueError("Environment.setRotationalPeriod: param microseconds is needed")
+            raise ValueError("Environment.setRotationalPeriod:  param microseconds is needed")
         if not isinstance(microseconds, int):
-            raise ValueError("Environment.setRotationalPeriod: param microseconds must be an integer")
+            raise ValueError("Environment.setRotationalPeriod:  param microseconds must be an integer")
         if microseconds < 1000000:
-            raise ValueError("Environment.setRotationalPeriod: param microseconds must be GE 1000000")
+            raise ValueError("Environment.setRotationalPeriod:  param microseconds must be GE 1000000")
         self.rotationalPeriod = microseconds
         return self.rotationalPeriod
     

@@ -16,7 +16,7 @@ class StarSensorTest(unittest.TestCase):
         self.myEnv.setRotationalPeriod(int(60 / 6 * 1000000))
         self.myStarSensor = StarSensor.StarSensor((10.0 / 360.0) * 2.0 * math.pi)
         self.myStarSensor.configure(self.myEnv)
-        self.starCatalog1 = {'file': 'Sao.txt', 'count': 9040}
+        self.starCatalog1 = {'file': 'SaoChart.txt', 'count': 9040}
         self.starCatalog2 = {'file': 'Data.txt', 'count': 9040}
         self.time2Orbit = int(((23 * 60 * 60) + (56 * 60) + (4.1)) * 1000000)
 

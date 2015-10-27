@@ -13,9 +13,9 @@ class StarSensor(object):
     env = None
     def __init__(self, fieldOfView=None):
         if fieldOfView == None:
-            raise ValueError("StarSensor.__init__: fieldOfView cannot be none")
+            raise ValueError("StarSensor.__init__:  fieldOfView cannot be none")
         if not(fieldOfView > 0 and fieldOfView <= (math.pi / 4)):
-            raise ValueError("StarSensor.__init__:fieldOfView invalid")
+            raise ValueError("StarSensor.__init__:  fieldOfView invalid")
         self.fieldView = fieldOfView
         
     def initializeSensor(self, starFile =None):
@@ -45,11 +45,11 @@ class StarSensor(object):
             fr.close()
     def StarSensor(self,fieldview=None):
         self.fieldView = fieldview
-    def configure(self, environment= None):
+    def configure(self, environment = None):
         if not(isinstance(environment, En.Environment)):
-            raise ValueError("StarSensor.configure:file is invalid")
+            raise ValueError("StarSensor.configure:  the file is invalid.")
         if (environment == None):
-            raise ValueError("StarSensor.configure:file is empty.")
+            raise ValueError("StarSensor.configure:  the file is empty.")
         self.env = environment
         return True
     
@@ -142,4 +142,4 @@ class StarSensor(object):
             #print i
             if rightAscension >= 2*math.pi:
                 rightAscension = rightAscension-2*math.pi
-        return rightAscension,declination
+        return [rightAscension,declination]
