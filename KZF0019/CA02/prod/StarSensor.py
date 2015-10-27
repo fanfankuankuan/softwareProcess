@@ -45,6 +45,7 @@ class StarSensor(object):
             fr.close()
     def StarSensor(self,fieldview=None):
         self.fieldView = fieldview
+        self.env.__init__()
     def configure(self, environment = None):
         if not(isinstance(environment, En.Environment)):
             raise ValueError("StarSensor.configure:  the file is invalid.")
