@@ -137,7 +137,7 @@ class StarSensor(object):
                 #return hex(float(minbr))         
             except:
                 pass
-        #En.Environment.incrementTime(40)
+        self.env.incrementTime(40)
     
     def getSensorPosition(self):
         rightAscension =  math.pi / 2 + self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
