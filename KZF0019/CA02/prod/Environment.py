@@ -33,6 +33,6 @@ class Environment(object):
         return self.rotationalPeriod
     
     def getRotationalPeriod(self):
-        if self.rotationalPeriod == -1:
+        if self.rotationalPeriod == 0:
             raise ValueError("Environment.getRotationalPeriod:  The rotational period has not previously been set") 
         return self.rotationalPeriod
