@@ -19,8 +19,8 @@ class Environment(object):
             raise ValueError("Environment.incrementTime:  param microseconds must be a integer")
         if microseconds < 0:
             raise ValueError("Environment.incrementTime:  param microseconds must be GE 0")
-        simulatedClock = self.simulatedClock + microseconds 
-        return simulatedClock
+        self.simulatedClock = self.simulatedClock + microseconds 
+        return self.simulatedClock
     
     def setRotationalPeriod(self, microseconds):
         if microseconds == None:
