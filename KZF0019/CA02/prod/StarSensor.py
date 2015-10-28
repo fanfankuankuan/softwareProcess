@@ -121,7 +121,7 @@ class StarSensor(object):
                 d = "f"+d
                 print d
             else:
-                raise ValueError("Sensor.serviceRequest: invalid input")
+                raise ValueError("StarSensor.serviceRequest:  invalid input")
             minBright = d
             try:
                 if minBright=="18696":
@@ -129,7 +129,7 @@ class StarSensor(object):
                 return minBright
             except:
                 return None
-                raise ValueError("Sensor.serviceRequest: invalid return")  
+                raise ValueError("StarSensor.serviceRequest:  invalid return")  
             
             #return hex(float(minbr))         
         except:
