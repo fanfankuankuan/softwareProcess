@@ -29,8 +29,8 @@ class Environment(object):
             raise ValueError("Environment.setRotationalPeriod:  param microseconds must be an integer")
         if microseconds < 1000000:
             raise ValueError("Environment.setRotationalPeriod:  param microseconds must be GE 1000000")
-        rotationalPeriod = microseconds + self.rotationalPeriod
-        return rotationalPeriod
+        self.rotationalPeriod += microseconds 
+        return self.rotationalPeriod
     
     def getRotationalPeriod(self):
         if self.rotationalPeriod == -1:
