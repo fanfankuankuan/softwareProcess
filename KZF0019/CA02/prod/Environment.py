@@ -5,7 +5,7 @@ Created on Oct 1, 2015
 '''
 class Environment(object):
     simulatedClock = 0
-    rotationalPeriod = -1
+    rotationalPeriod = 0
     def __init__(self):
         self.simulatedClock = 0
     
