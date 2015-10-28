@@ -6,6 +6,7 @@ Created on Oct 18, 2015
 import types
 from genericpath import isfile
 import CA02.prod.Environment as En
+import CA03.prod.device as De
 import  xml.dom.minidom
 
 class controller(object):
@@ -20,7 +21,6 @@ class controller(object):
         if not isfile(architectureFile):
             raise ValueError("Controller.architectureFile:  no file exists by the specified file name")
         dom = xml.dom.minidom.parse('abc.xml')
-
         
         pass
     def configure(self,environment):
@@ -32,6 +32,6 @@ class controller(object):
     def run(self,microseconds):
         if microseconds == None:
             raise ValueError("Controller.run:  input is invalid.")
-            
+        De.device.serviceRequest()
         return microseconds
     
