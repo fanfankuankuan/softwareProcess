@@ -12,7 +12,7 @@ class Environment(object):
     def getTime(self):
         return self.simulatedClock       
     
-    def incrementTime(self, microseconds):
+    def incrementTime(self, microseconds=None):
         if microseconds == None:
             raise ValueError("Environment.incrementTime:  param microseconds is needed")
         if not isinstance(microseconds, int):
