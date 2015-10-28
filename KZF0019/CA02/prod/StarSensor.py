@@ -140,7 +140,7 @@ class StarSensor(object):
         En.Environment.incrementTime(40)
     
     def getSensorPosition(self):
-        rightAscension =  + self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
+        rightAscension =  math.pi / 2 + self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
         declination = self.env.getTime() * 2 * math.pi / (86164.1*1000000)
         for i in range(0,99999,1):
             #print i
