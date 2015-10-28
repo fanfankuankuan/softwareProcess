@@ -22,7 +22,7 @@ class Environment(object):
         self.simulatedClock = self.simulatedClock + microseconds 
         return self.simulatedClock
     
-    def setRotationalPeriod(self, microseconds):
+    def setRotationalPeriod(self, microseconds=None):
         if microseconds == None:
             raise ValueError("Environment.setRotationalPeriod:  param microseconds is needed")
         if not isinstance(microseconds, int):
