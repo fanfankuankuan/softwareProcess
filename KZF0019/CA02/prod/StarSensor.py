@@ -126,6 +126,7 @@ class StarSensor(object):
                 else:
                     raise ValueError("StarSensor.serviceRequest:  invalid input")
                 minBright = d
+                self.env.incrementTime(40)
                 try:
                     if minBright=="18696":
                         return None
