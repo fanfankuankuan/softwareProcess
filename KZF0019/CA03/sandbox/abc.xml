@@ -1,5 +1,1 @@
-<frame rate="1000000">
-<device>Device</device>
-<device>StarSensor</device>
-<device>Device</device>
-</frame>
+10000000 logfile.txt 0.174533 SAOChart.txt Device StarSensor Device

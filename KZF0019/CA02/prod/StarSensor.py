@@ -18,7 +18,7 @@ class StarSensor(object):
             raise ValueError("StarSensor.__init__:  fieldOfView invalid")
         self.fieldView = fieldOfView
         
-    def initializeSensor(self, starFile =None):
+    def initializeSensor(self, starFile = None):
         starCount = 0
         if(starFile == None):
             raise ValueError("StarSensor.initializeSensor:  invalid file type")
