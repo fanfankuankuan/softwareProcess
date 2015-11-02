@@ -147,4 +147,4 @@ class StarSensor(object):
             #print i
             if rightAscension >= 2*math.pi:
                 rightAscension = rightAscension-2*math.pi
-        return [declination,rightAscension]
+        return [rightAscension,declination]
