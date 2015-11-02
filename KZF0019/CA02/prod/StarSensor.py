@@ -62,8 +62,8 @@ class StarSensor(object):
         if self.env == None:
             return None
         else:
-            rightAscension = math.pi/2 + self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
-            declination = self.env.getTime() * 2 * math.pi / (86164.1*1000000) 
+            rightAscension = math.pi/2 + self.env.getTime() * 2 * math.pi / (86164.1*1000000)
+            declination = self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
             for i in range(0,99999,1):
                 if rightAscension >= 2*math.pi:
                     rightAscension = rightAscension-2*math.pi
