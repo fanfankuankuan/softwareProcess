@@ -28,5 +28,6 @@ class Monitor(object):
         self.env = environment
         return True
     def serviceRequest(self,source,target,event):
-        pass
+        time = []
+        return time
     
