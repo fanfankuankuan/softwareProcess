@@ -68,7 +68,7 @@ class StarSensor(object):
             #print i
             if rightAscension >= 2*math.pi:
                 rightAscension = rightAscension-2*math.pi
-            try:
+        
                 xMaxnum = float(rightAscension+self.fieldView/2)    #calculate the Max number in the x axle  
                 xMinnum = float(rightAscension-self.fieldView/2)    #calculate the Min number in the x axle
                 yMaxnum = float(declination+self.fieldView/2)       #calculate the Max number in the y axle
@@ -90,7 +90,7 @@ class StarSensor(object):
                             #raise ValueError("Invalid input")
                     else:
                         pass
-                print list2
+                #print list2
                 minbr = list2[0]
                 x= float(minbr)
                 a = x*10
@@ -129,8 +129,7 @@ class StarSensor(object):
                     raise ValueError("StarSensor.serviceRequest:  invalid return")  
                 
                 #return hex(float(minbr))         
-            except:
-                pass
+            
                 #raise ValueError("StarSensor.serviceRequest:  invalid work")
         #self.env.incrementTime(40)
     
