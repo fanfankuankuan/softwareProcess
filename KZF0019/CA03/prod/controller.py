@@ -23,11 +23,6 @@ class controller(object):
         dom = xml.dom.minidom.parse('abc.xml')
         
         pass
-    def configure(self,environment):
-        if not(isinstance(environment, En.Environment)):
-            raise ValueError("Controller.configure:  file is invalid")
-        self.env = environment
-        return True
 
     def run(self,microseconds):
         if microseconds == None:
