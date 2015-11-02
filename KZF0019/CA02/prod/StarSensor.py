@@ -73,7 +73,7 @@ class StarSensor(object):
                 yMaxnum = float(declination+self.fieldView/2)       #calculate the Max number in the y axle
                 yMinnum = float(declination-self.fieldView/2)       #calculate the Min number in the y axle
                 
-                content = open('Data.txt', 'r')
+                content = open('CA02StarTestChart.txt', 'r')
                 for i in content.splitlines():
                     fields = i.split('\t')       
                     #print fields[2]
