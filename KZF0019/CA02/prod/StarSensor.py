@@ -90,12 +90,6 @@ class StarSensor(object):
                     else:
                         pass
                 minbr = 9999
-                for k in list2:
-                    if float(minbr) > float(k):
-                        minbr = k
-                    if minbr == 9999:
-                        minbr = None
-                
                 x= float(minbr)
                 a = x*10
                 a = int(a)
