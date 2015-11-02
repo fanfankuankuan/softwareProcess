@@ -89,7 +89,7 @@ class StarSensor(object):
                             #raise ValueError("Invalid input")
                     else:
                         pass
-                minbr = 9999
+                minbr = list2[0]
                 x= float(minbr)
                 a = x*10
                 a = int(a)
