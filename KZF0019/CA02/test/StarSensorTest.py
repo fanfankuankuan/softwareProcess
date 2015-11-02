@@ -17,7 +17,7 @@ class StarSensorTest(unittest.TestCase):
         self.myStarSensor = StarSensor.StarSensor((10.0 / 360.0) * 2.0 * math.pi)
         self.myStarSensor.configure(self.myEnv)
         self.starCatalog1 = {'file': 'SaoChart.txt', 'count': 9040}
-        self.starCatalog2 = {'file': 'CA02StarTestChart.txt', 'count': 9040}
+        self.starCatalog2 = {'file': 'CA02StarTestChart.txt', 'count': 3}
         self.time2Orbit = int(((23 * 60 * 60) + (56 * 60) + (4.1)) * 1000000)
 
     def tearDown(self):
