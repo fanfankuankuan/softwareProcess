@@ -89,6 +89,7 @@ class StarSensor(object):
                             #raise ValueError("Invalid input")
                     else:
                         pass
+                print list2
                 minbr = list2[0]
                 x= float(minbr)
                 a = x*10
