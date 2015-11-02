@@ -134,7 +134,8 @@ class StarSensor(object):
                 
                 #return hex(float(minbr))         
             except:
-                raise ValueError("StarSensor.serviceRequest:  invalid work")
+                pass
+                #raise ValueError("StarSensor.serviceRequest:  invalid work")
         #self.env.incrementTime(40)
     
     def getSensorPosition(self):
