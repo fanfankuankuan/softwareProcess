@@ -62,11 +62,12 @@ class StarSensor(object):
         if self.env == None:
             return None
         else:
-            rightAscension = math.pi/2 + self.env.getTime() * 2 * math.pi / (86164.1*1000000)
-            declination = self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
-            for i in range(0,99999,1):
-                if rightAscension >= 2*math.pi:
-                    rightAscension = rightAscension-2*math.pi
+            rightAscension =  math.pi / 2 + self.env.getTime() * 2 * math.pi / (86164.1*1000000)
+            declination =  self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
+        for i in range(0,99999,1):
+            #print i
+            if rightAscension >= 2*math.pi:
+                rightAscension = rightAscension-2*math.pi
             try:
                 xMaxnum = float(rightAscension+self.fieldView/2)    #calculate the Max number in the x axle  
                 xMinnum = float(rightAscension-self.fieldView/2)    #calculate the Min number in the x axle
