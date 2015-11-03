@@ -78,20 +78,21 @@ class StarSensor(object):
             print xMaxnum,xMinnum,yMaxnum,yMinnum
             
             try:    
-                f = open("Data.txt", 'r')
-                content = f.readlines()
-                for i in content.splitlines():
-                    fields = i.split()       
-                    print fields[2]
-                    if ((float(fields[2]) <= xMaxnum and float(fields[2]) >= xMinnum) ): 
-                        if ((float(fields[3]) <= yMaxnum and float(fields[3]) >= yMinnum)):                           
-                            list2.append(fields[1])
+                with open("Data.txt") as f:
+                
+                    content = f.read()
+                    for i in content.splitlines():
+                        fields = i.split('\t')   
+                
+                        if ((float(fields[2]) <= xMaxnum and float(fields[2]) >= xMinnum) ): 
+                            if ((float(fields[3]) <= yMaxnum and float(fields[3]) >= yMinnum)):                           
+                                list2.append(fields[1])
                             #print "ID",fields[0], "star is in the square, its brightness is ", fields[1] 
+                            else:
+                                pass
+                            #raise ValueError("Invalid input")
                         else:
                             pass
-                            #raise ValueError("Invalid input")
-                    else:
-                        pass
                 #print list2
                 minbr = 9999
                 for k in list2:
