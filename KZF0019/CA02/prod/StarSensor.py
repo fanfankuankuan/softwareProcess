@@ -68,7 +68,7 @@ class StarSensor(object):
                     rightAscension = rightAscension - 2*math.pi
                     
                 while declination - self.fieldView/2 >= math.pi:
-                    declination = declination - 2*math.pi
+                    declination = declination - math.pi
                     
                 xMaxnum = float(rightAscension+self.fieldView/2)    #calculate the Max number in the x axle  
                 xMinnum = float(rightAscension-self.fieldView/2)    #calculate the Min number in the x axle
