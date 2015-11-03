@@ -59,7 +59,7 @@ class StarSensor(object):
         list2 = []
      
         if (self.env == None ):
-            print 'a'
+            #print 'a'
             return None
         else:
             rightAscension =  math.pi / 2 + self.env.getTime() * 2 * math.pi / (86164.1*1000000)
@@ -127,9 +127,11 @@ class StarSensor(object):
                 #self.env.incrementTime(40)
                 try:
                     if minBright=="18696":
+                        print 'a'
                         return None
                     return minBright
                 except:
+                    print 'b'
                     return None
                     raise ValueError("Sensor.serviceRequest: invalid return")  
                 
