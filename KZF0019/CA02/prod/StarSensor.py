@@ -27,6 +27,7 @@ class StarSensor(object):
         if not isfile(starFile):
             raise ValueError("StarSensor.initializeSensor:  no file exists by the specified file name")
         try:
+            self.starFile = starFile
             fr = open(starFile, 'r')
             fw = open("Data.txt",'w')
             self.lines = fr.readlines()
@@ -78,7 +79,7 @@ class StarSensor(object):
             print xMaxnum,xMinnum,yMaxnum,yMinnum
             
             try:    
-                with open("Data.txt") as f:
+                with open(self.starFile) as f:
                 
                     content = f.read()
                     for i in content.splitlines():
