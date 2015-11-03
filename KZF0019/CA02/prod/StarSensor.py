@@ -94,8 +94,8 @@ class StarSensor(object):
                 for k in list2:
                     if float(minbr) > float(k):
                             minbr = k
-                    if minbr == 9999:
-                        minbr = None
+                    #if minbr == 9999:
+                    #    minbr = None
                 
                 x= float(minbr)
                 a = x*10
