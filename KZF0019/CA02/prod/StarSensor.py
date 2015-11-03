@@ -60,7 +60,6 @@ class StarSensor(object):
      
         if (self.env == None ):
             return None
-            print 'a'
         else:
             rightAscension =  math.pi / 2 + self.env.getTime() * 2 * math.pi / (86164.1*1000000)
             declination =  self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
@@ -79,7 +78,7 @@ class StarSensor(object):
                 
                 content = self.lines.read()
                 for i in content.splitlines():
-                    fields = i.split('\t')       
+                    fields = i.split()       
                     #print fields[2]
                     if ((float(fields[2]) <= xMaxnum and float(fields[2]) >= xMinnum) ): 
                         if ((float(fields[3]) <= yMaxnum and float(fields[3]) >= yMinnum)):                           
