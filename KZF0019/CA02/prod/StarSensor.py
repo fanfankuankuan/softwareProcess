@@ -64,10 +64,10 @@ class StarSensor(object):
             rightAscension =  math.pi / 2 + self.env.getTime() * 2 * math.pi / (86164.1*1000000)
             declination =  self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
             try:
-                while rightAscension-self.fieldView/2 >= 2 * math.pi:
+                while (rightAscension-self.fieldView/2) >= 2 * math.pi:
                     rightAscension = rightAscension - 2 * math.pi
                     
-                while declination-self.fieldView/2 >= math.pi:
+                while (declination-self.fieldView/2) >= math.pi:
                     declination = declination - 2 * math.pi
                     
                 xMaxnum = float(rightAscension+self.fieldView/2)    #calculate the Max number in the x axle  
