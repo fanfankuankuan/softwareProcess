@@ -62,8 +62,8 @@ class StarSensor(object):
             #print 'a'
             return None
         else:
-            rightAscension =  math.pi / 2 + self.env.getTime() * 2 * math.pi / (86164.1*1000000)
-            declination =  self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
+            rightAscension =  float(math.pi / 2 + self.env.getTime() * 2 * math.pi / (86164.1*1000000))
+            declination =  float(self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod())
             try:
                 while (rightAscension-self.fieldView/2) >= 2 * math.pi:
                     rightAscension = rightAscension - 2 * math.pi
@@ -127,11 +127,11 @@ class StarSensor(object):
                 #self.env.incrementTime(40)
                 try:
                     if minBright=="18696":
-                        print 'a'
+                        
                         return None
                     return minBright
                 except:
-                    print 'b'
+                    
                     return None
                     raise ValueError("Sensor.serviceRequest: invalid return")  
                 
