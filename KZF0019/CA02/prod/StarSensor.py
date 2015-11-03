@@ -59,8 +59,8 @@ class StarSensor(object):
         list2 = []
         list3 = []
         list4 = []
-        rightAscension = math.pi/2 + self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
-        declination = self.env.getTime() * 2 * math.pi / (86164.1*1000000)
+        rightAscension =  math.pi / 2 + self.env.getTime() * 2 * math.pi / (86164.1*1000000)
+        declination =  self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
         try:
             xMaxnum = float(rightAscension+self.fieldView/2)    #calculate the Max number in the x axle  
             xMinnum = float(rightAscension-self.fieldView/2)    #calculate the Min number in the x axle
