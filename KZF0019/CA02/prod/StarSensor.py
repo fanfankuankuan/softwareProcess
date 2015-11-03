@@ -32,8 +32,10 @@ class StarSensor(object):
             fw = open("Data.txt",'w')
             self.lines = fr.readlines()
             for line in self.lines[0:]:
-                data = line.split()
-                fw.write(data)
+                infors = line.split()
+                for i in range(0,len(infors)):
+                    infors[i] = (float)(infors[i])
+                fw.write(line)
                 starCount += 1
             print starCount
             return starCount
