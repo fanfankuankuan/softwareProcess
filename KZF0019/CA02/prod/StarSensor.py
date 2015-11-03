@@ -92,6 +92,7 @@ class StarSensor(object):
                             #raise ValueError("Invalid input")
                     else:
                         pass
+                print list2
                 minbr = 9999
                 for k in list2:
                     if float(minbr) > float(k):
