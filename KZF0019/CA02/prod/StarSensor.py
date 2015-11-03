@@ -63,7 +63,6 @@ class StarSensor(object):
         else:
             rightAscension =  math.pi / 2 + self.env.getTime() * 2 * math.pi / (86164.1*1000000)
             declination =  self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
-        
             try:
                 while rightAscension-self.fieldView/2 >= 2 * math.pi:
                     rightAscension = rightAscension - 2 * math.pi
@@ -76,7 +75,8 @@ class StarSensor(object):
                 yMaxnum = float(declination+self.fieldView/2)       #calculate the Max number in the y axle
                 yMinnum = float(declination-self.fieldView/2)       #calculate the Min number in the y axle
                 
-                content = self.lines.read()
+                f = open('Data.txt', 'r')
+                content = f.read()
                 for i in content.splitlines():
                     fields = i.split()       
                     #print fields[2]
