@@ -63,8 +63,7 @@ class StarSensor(object):
         else:
             rightAscension =  math.pi / 2 + self.env.getTime() * 2 * math.pi / (86164.1*1000000)
             declination =  self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
-            float(rightAscension)
-            float(declination)
+        
             try:
                 while float(rightAscension-self.fieldView/2) >= 2 * math.pi:
                     rightAscension = rightAscension - 2 * math.pi
