@@ -37,7 +37,7 @@ class StarSensor(object):
                     infors[i] = (float)(infors[i])
                 fw.write(line)
                 starCount += 1
-            print starCount
+            #print starCount
             return starCount
         except Exception, ex:
             print ex
@@ -82,8 +82,8 @@ class StarSensor(object):
             try:    
                 with open(self.starFile) as f:
                 
-                    content = f.read()
-                    for i in content.splitlines():
+                    content = f.readlines()
+                    for i in content[0:]:
                         
                         fields = i.split()   
                         print fields
