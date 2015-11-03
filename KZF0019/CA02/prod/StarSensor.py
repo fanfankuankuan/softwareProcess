@@ -31,12 +31,11 @@ class StarSensor(object):
             fr = open(starFile, 'r')
             fw = open("Data.txt",'w')
             self.lines = fr.readlines()
-            for line in self.lines:
-                infors = line.split()
-                for i in range(0,len(infors)):
-                    infors[i] = (float)(infors[i])
-                fw.write(line)
+            for line in self.lines[0:]:
+                data = line.split()
+                fw.write(data)
                 starCount += 1
+            print starCount
             return starCount
         except Exception, ex:
             print ex
