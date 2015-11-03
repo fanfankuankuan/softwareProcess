@@ -87,8 +87,8 @@ class StarSensor(object):
                         
                         fields = i.split()   
                         print fields
-                        if ((float(fields[2]) <= xMaxnum and float(fields[2]) >= xMinnum) ): 
-                            if ((float(fields[3]) <= yMaxnum and float(fields[3]) >= yMinnum)):                           
+                        if ((float(fields[2]) <= yMaxnum and float(fields[2]) >= yMinnum) ): 
+                            if ((float(fields[3]) <= xMaxnum and float(fields[3]) >= xMinnum)):                           
                                 list2.append(fields[1])
                             #print "ID",fields[0], "star is in the square, its brightness is ", fields[1] 
                             else:
