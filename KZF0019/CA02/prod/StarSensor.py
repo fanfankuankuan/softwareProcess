@@ -134,7 +134,7 @@ class StarSensor(object):
                 #return hex(float(minbr))         
             except:
                 pass
-            #self.env.incrementTime(40)
+            self.env.incrementTime(40)
 
     
     def getSensorPosition(self):
