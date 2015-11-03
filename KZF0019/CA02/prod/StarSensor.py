@@ -78,7 +78,7 @@ class StarSensor(object):
             print xMaxnum,xMinnum,yMaxnum,yMinnum
             
             try:    
-                f = open('Data.txt', 'r')
+                f = open("Data.txt", 'r')
                 content = f.readlines()
                 for i in content.splitlines():
                     fields = i.split()       
