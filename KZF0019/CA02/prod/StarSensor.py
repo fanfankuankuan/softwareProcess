@@ -55,10 +55,9 @@ class StarSensor(object):
         return True
     
     def serviceRequest(self):
-        list1 = []
+     
         list2 = []
-        list3 = []
-        list4 = []
+     
         if (self.env == None ):
             return None
         else:
@@ -81,12 +80,8 @@ class StarSensor(object):
                     fields = i.split('\t')       
                     #print fields[2]
                     if ((float(fields[2]) <= xMaxnum and float(fields[2]) >= xMinnum) ): 
-                        if ((float(fields[3]) <= yMaxnum and float(fields[3]) >= yMinnum)):
-                            
-                            list1.append(fields[0])       #add the value into list
+                        if ((float(fields[3]) <= yMaxnum and float(fields[3]) >= yMinnum)):                           
                             list2.append(fields[1])
-                            list3.append(fields[2])
-                            list4.append(fields[3])
                             #print "ID",fields[0], "star is in the square, its brightness is ", fields[1] 
                         else:
                             pass
@@ -99,7 +94,7 @@ class StarSensor(object):
                             minbr = k
                     if minbr == 9999:
                         minbr = None
-                
+                self.env.incrementTime(40)
                 x= float(minbr)
                 a = x*10
                 a = int(a)
@@ -127,7 +122,7 @@ class StarSensor(object):
                 else:
                     raise ValueError("Sensor.serviceRequest: invalid input")
                 minBright = d
-                self.env.incrementTime(40)
+                #self.env.incrementTime(40)
                 try:
                     if minBright=="18696":
                         return None
