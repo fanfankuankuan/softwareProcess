@@ -80,9 +80,9 @@ class StarSensor(object):
                     for i in content.splitlines():
                         fields = i.split('\t')       
                         #print fields[2]
-                        if ((float(fields[2]) <= xMaxnum and float(fields[2]) >= xMinnum): #or (float(fields[2]) <= xMaxnum-2*math.pi and float(fields[2]) >= xMinnum - 2*math.pi) or (float(fields[2]) <= xMaxnum+2*math.pi and float(fields[2]) >= xMinnum+2*math.pi)): 
-                            if ((float(fields[3]) <= yMaxnum and float(fields[3]) >= yMinnum): #or (float(fields[3]) <= yMaxnum - 2*math.pi and float(fields[3]) >= yMinnum -2*math.pi) or (float(fields[3]) <= yMaxnum + 2*math.pi and float(fields[3]) >= yMinnum + 2*math.pi)):
-                                #j += 1
+                        if ((float(fields[2]) <= xMaxnum and float(fields[2]) >= xMinnum) ): 
+                            if ((float(fields[3]) <= yMaxnum and float(fields[3]) >= yMinnum)):
+                                j += 1
                                 list1.append(fields[0])       #add the value into list
                                 list2.append(fields[1])
                                 list3.append(fields[2])
