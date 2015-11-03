@@ -94,7 +94,7 @@ class StarSensor(object):
                             minbr = k
                     if minbr == 9999:
                         minbr = None
-                self.env.incrementTime(40)
+                
                 x= float(minbr)
                 a = x*10
                 a = int(a)
