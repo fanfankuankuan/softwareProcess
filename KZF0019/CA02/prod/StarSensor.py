@@ -132,12 +132,9 @@ class StarSensor(object):
                 try:
                     if minBright=="18696":
                         return None
-                    return minBright
+                    return minBright 
                 except:
-                    return None
-                    raise ValueError("")   
-                except:
-                    
+            
                     return None
                     raise ValueError("Sensor.serviceRequest: invalid return")  
                 
