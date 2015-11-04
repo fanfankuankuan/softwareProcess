@@ -78,7 +78,7 @@ class StarSensor(object):
             xMinnum = float(rightAscension-self.fieldView/2)    #calculate the Min number in the x axle
             yMaxnum = float(declination+self.fieldView/2)       #calculate the Max number in the y axle
             yMinnum = float(declination-self.fieldView/2)       #calculate the Min number in the y axle
-            print xMaxnum,xMinnum,yMaxnum,yMinnum
+            #print xMaxnum,xMinnum,yMaxnum,yMinnum
             
             try:    
                 with open(self.starFile) as f:
@@ -132,6 +132,7 @@ class StarSensor(object):
                 else:
                     raise ValueError("")
                 minBright = d
+                self.env.incrementTime(40)
                 try:
                     if minBright=="18696":
                         return None
@@ -144,7 +145,7 @@ class StarSensor(object):
                 #return hex(float(minbr))         
             except:
                 pass
-            self.env.incrementTime(40)
+            #self.env.incrementTime(40)
 
     
     def getSensorPosition(self):
