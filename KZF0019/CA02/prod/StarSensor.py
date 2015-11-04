@@ -28,10 +28,9 @@ class StarSensor(object):
         if not isfile(starFile):
             raise ValueError("StarSensor.initializeSensor:  no file exists by the specified file name")
         try:
-            self.starFile = starFile
             fr = file(starFile)
-            lines = fr.readlines()
-            for line in lines:
+            self.lines = fr.readlines()
+            for line in self.lines:
                 #infors = line.split()
                 #for i in range(0,len(infors)):
                 #    infors[i] = (float)(infors[i])
@@ -79,22 +78,20 @@ class StarSensor(object):
             #print xMaxnum,xMinnum,yMaxnum,yMinnum
             
             try:    
-                with open("CA02StarTestChart") as f:
                 
-                    content = f.readlines()
-                    for i in content[0:]:
-                        
-                        fields = i.split()   
-                        print fields
-                        if ((float(fields[2]) <= xMaxnum and float(fields[2]) >= xMinnum) ): 
-                            if ((float(fields[3]) <= yMaxnum and float(fields[3]) >= yMinnum)):                           
-                                list2.append(fields[1])
-                            #print "ID",fields[0], "star is in the square, its brightness is ", fields[1] 
-                            else:
-                                pass
-                            #raise ValueError("Invalid input")
+                for i in self.lines[0:]:
+                    
+                    fields = i.split()   
+                    print fields
+                    if ((float(fields[2]) <= xMaxnum and float(fields[2]) >= xMinnum) ): 
+                        if ((float(fields[3]) <= yMaxnum and float(fields[3]) >= yMinnum)):                           
+                            list2.append(fields[1])
+                        #print "ID",fields[0], "star is in the square, its brightness is ", fields[1] 
                         else:
                             pass
+                        #raise ValueError("Invalid input")
+                    else:
+                        pass
                 #print list2
                 minbr = 9999
                 for k in list2:
