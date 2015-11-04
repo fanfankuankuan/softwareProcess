@@ -19,6 +19,8 @@ class StarSensor(object):
         self.fieldView = fieldOfView
         
     def initializeSensor(self, starFile = None):
+        list1 = []
+        list2 = []
         starCount = 0
         if(starFile == None):
             raise ValueError("StarSensor.initializeSensor:  invalid file type")
@@ -28,23 +30,26 @@ class StarSensor(object):
             raise ValueError("StarSensor.initializeSensor:  no file exists by the specified file name")
         try:
             self.starFile = starFile
-            fr = open(starFile, 'r')
-            fw = open("Data.txt",'w')
-            self.lines = fr.readlines()
+            fr = file(starFile)      
+            self.lines = fr.readlines() 
+            length = 0
             for line in self.lines[0:]:
-                #infors = line.split()
-                #for i in range(0,len(infors)):
-                #    infors[i] = (float)(infors[i])
-                #    print infors
-                #fw.write(line)
-                starCount += 1
-            #print starCount
-            return starCount
+                    length += 1
+                    data = line.split() 
+                
+                    try :
+                        float(data[0])
+                        float(data[1])
+                    except: 
+                        raise ValueError("invalid data") 
+                    list1.append(data[0])
+                    list2.append(data[1]) 
+            
+            return length
         except Exception, ex:
             print ex
             raise ValueError("StarSensor.initializeSensor:  file contains invalid information")
         finally:
-            fw.close()
             fr.close()
     def StarSensor(self,fieldview=None):
         self.fieldView = fieldview
