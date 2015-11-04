@@ -10,10 +10,6 @@ from genericpath import isfile
 
 
 class StarSensor(object):
-    global bright
-    global id
-    bright = []
-    id = []
     env = None
     def __init__(self, fieldOfView=None):
         if fieldOfView == None:
@@ -22,7 +18,8 @@ class StarSensor(object):
             raise ValueError("StarSensor.__init__:  fieldOfView invalid")
         self.fieldView = fieldOfView
         
-    def initializeSensor(self,starFile = None):
+    def initializeSensor(self, starFile = None):
+        bright = []
         if(starFile == None):
             raise ValueError("StarSensor.initializeSensor:  ")
         if(isinstance(starFile,str)):
@@ -143,7 +140,8 @@ class StarSensor(object):
                 raise ValueError("Sensor.serviceRequest: invalid return")  
                 
                 #return hex(float(minbr))         
-
+            except:
+                pass
             self.env.incrementTime(40)
 
     
