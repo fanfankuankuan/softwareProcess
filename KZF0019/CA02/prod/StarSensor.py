@@ -148,10 +148,18 @@ class StarSensor(object):
 
     
     def getSensorPosition(self):
-        rightAscension =  math.pi / 2 + self.env.getTime() * 2 * math.pi / (86164.1*1000000)
-        declination =  self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
-        for i in range(0,99999,1):
-            #print i
-            if rightAscension >= 2*math.pi:
-                rightAscension = rightAscension-2*math.pi
-        return [rightAscension,declination]
+        try:
+            StarSensorRA = float(math.pi/2 + (self.myEnv.getTime())*(2*math.pi)/((23*60*60+56*60+4.1)*1000000))
+            StarSensorDec = float(( self.myEnv.getTime())*(2*math.pi)/self.myEnv.getRotationalPeriod())
+            
+        except:
+            return [None,None]
+        while StarSensorRA >= 2*math.pi:
+            StarSensorRA = StarSensorRA-2*math.pi
+        while StarSensorRA <= -2*math.pi:
+            StarSensorRA = StarSensorRA+2*math.pi
+        while StarSensorDec >= 2*math.pi:
+            StarSensorDec = StarSensorDec-2*math.pi
+        while StarSensorDec <= -2*math.pi:
+            StarSensorDec = StarSensorDec+2*math.pi
+        return [StarSensorRA,StarSensorDec]
