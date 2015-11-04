@@ -19,33 +19,34 @@ class StarSensor(object):
         self.fieldView = fieldOfView
         
     def initializeSensor(self, starFile = None):
-        starCount = 0
+        bright = []
         if(starFile == None):
-            raise ValueError("StarSensor.initializeSensor:  invalid file type")
-        if not(isinstance(starFile, types.StringType)):
-            raise ValueError("StarSensor.initializeSensor:  invalid file name")
-        if not isfile(starFile):
-            raise ValueError("StarSensor.initializeSensor:  no file exists by the specified file name")
-        try:
-            self.starFile = starFile
-            fr = open(starFile, 'r')
-            fw = open("Data.txt",'w')
-            self.lines = fr.readlines()
-            for line in self.lines[0:]:
-                #infors = line.split()
-                #for i in range(0,len(infors)):
-                #    infors[i] = (float)(infors[i])
-                #    print infors
-                #fw.write(line)
-                starCount += 1
-            #print starCount
-            return starCount
-        except Exception, ex:
-            print ex
-            raise ValueError("StarSensor.initializeSensor:  file contains invalid information")
-        finally:
-            fw.close()
-            fr.close()
+            raise ValueError("StarSensor.initializeSensor:  ")
+        if(isinstance(starFile,str)):
+            try:
+                #global lines
+                self.starFile = starFile
+                f = file(starFile)      
+                self.lines = f.readlines() 
+                #print "lines:" , lines  
+                length = 0
+                for line in self.lines[0:]:
+                    length += 1
+                    data = line.split() 
+                
+                    try :
+                        float(data[0])
+                        float(data[1])
+                    except: 
+                        raise ValueError("invalid data")                       
+                    bright.append(data[1])
+                    id.append(data[0]) 
+                #self.f.close() 
+            except:
+                raise ValueError("StarSensor.initializeSensor:  ")      
+        else:
+            raise ValueError("StarSensor.initializeSensor:  ")
+        return length
     def StarSensor(self,fieldview=None):
         self.fieldView = fieldview
         self.env.__init__()
