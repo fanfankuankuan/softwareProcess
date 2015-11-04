@@ -29,22 +29,17 @@ class StarSensor(object):
         if not isfile(starFile):
             raise ValueError("StarSensor.initializeSensor:  no file exists by the specified file name")
         try:
-            #global lines
-            f = open(starFile, 'r')      
-            self.lines = f.readlines() 
-            #print "lines:" , lines  
-            for line in self.lines[0:]:
+            fr = open(starFile, 'r')
+            fw = open("Data.txt",'w')
+            lines = fr.readlines()
+            for line in lines:
+                infors = line.split()
+                for i in range(0,len(infors)):
+                    infors[i] = (float)(infors[i])
+                fw.write(line)
                 starCount += 1
-                data = line.split() 
-            
-                try :
-                    float(data[0])
-                    float(data[1])
-                except: 
-                    raise ValueError("invalid data")                       
-                bright.append(data[1])
-                IDN.append(data[0])
-            return starCount 
+            return starCount
+       
         except Exception, ex:
             print ex
             raise ValueError("StarSensor.initializeSensor:  file contains invalid information")
