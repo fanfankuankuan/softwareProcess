@@ -3,7 +3,7 @@ Created on Oct 18, 2015
 
 @author: KevinFAN
 '''
-import CA02.sandbox.sss as StarSensor
+import CA03.sandbox.sss as StarSensor
 import CA02.prod.Environment as Environment
 import math
 import unittest
