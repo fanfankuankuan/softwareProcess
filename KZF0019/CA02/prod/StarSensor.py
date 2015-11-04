@@ -10,6 +10,10 @@ from genericpath import isfile
 
 
 class StarSensor(object):
+    global bright
+    global id
+    bright = []
+    id = []
     env = None
     def __init__(self, fieldOfView=None):
         if fieldOfView == None:
