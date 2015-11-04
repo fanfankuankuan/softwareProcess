@@ -46,9 +46,9 @@ class StarSensor(object):
                     id.append(data[0]) 
                 #self.f.close() 
             except:
-                raise ValueError("StarSensor.initializeSensor:  ")      
+                raise ValueError("StarSensor.initializeSensor:  file contains invalid information")      
         else:
-            raise ValueError("StarSensor.initializeSensor:  ")
+            raise ValueError("StarSensor.initializeSensor:  file contains invalid information")
         return length
     def getSensorPosition(self):
         try:
