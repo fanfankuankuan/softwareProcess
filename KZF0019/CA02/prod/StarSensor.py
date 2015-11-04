@@ -18,8 +18,7 @@ class StarSensor(object):
             raise ValueError("StarSensor.__init__:  fieldOfView invalid")
         self.fieldView = fieldOfView
         
-    def initializeSensor(self, starFile = None):
-        bright = []
+    def initializeSensor(self,starFile = None):
         if(starFile == None):
             raise ValueError("StarSensor.initializeSensor:  ")
         if(isinstance(starFile,str)):
