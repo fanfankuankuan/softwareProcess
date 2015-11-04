@@ -28,8 +28,7 @@ class StarSensor(object):
         if not isfile(starFile):
             raise ValueError("StarSensor.initializeSensor:  no file exists by the specified file name")
         try:
-            fr = open(starFile, 'r')
-
+            fr = file(starFile)
             lines = fr.readlines()
             for line in lines:
                 #infors = line.split()
