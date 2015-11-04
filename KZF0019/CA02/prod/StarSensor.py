@@ -28,7 +28,6 @@ class StarSensor(object):
         if not isfile(starFile):
             raise ValueError("StarSensor.initializeSensor:  no file exists by the specified file name")
         try:
-            self.starFile = starFile
             fr = file(starFile)      
             self.lines = fr.readlines() 
             length = 0
