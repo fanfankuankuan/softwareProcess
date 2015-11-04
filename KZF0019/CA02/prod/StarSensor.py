@@ -29,7 +29,6 @@ class StarSensor(object):
         try:
             self.starFile = starFile
             fr = open(starFile, 'r')
-            fw = open("Data.txt",'w')
             self.lines = fr.readlines()
             for line in self.lines[0:]:
                 #infors = line.split()
@@ -58,94 +57,64 @@ class StarSensor(object):
         return True
     
     def serviceRequest(self):
-     
-        list2 = []
-     
-        if (self.env == None ):
-            #print 'a'
+        brightGM=[]
+        try:
+            raCenter = float(math.pi/2+ self.myEnv.getTime()*(2*math.pi)/(((23 * 60 * 60) + (56 * 60) + 4.1) * 1000000))
+            decCenter = float((self.myEnv.getTime())*(2*math.pi)/self.myEnv.getRotationalPeriod())
+            #print "RA: " , raCenter
+            #print "getTime():" ,self.myEnv.getTime()
+            #print "self.myEnv.getRotationalPeriod():" , self.myEnv.getRotationalPeriod()
+            #print "DEC: ", decCenter
+        except:
             return None
+        while raCenter- self.fieldOfView/2  >= 2 * math.pi:
+            raCenter = raCenter-2*math.pi
+        while decCenter  >=  math.pi:
+            decCenter = decCenter-2*math.pi
+        try:
+            a = float(raCenter - self.fieldOfView/2)
+            b = float(raCenter + self.fieldOfView/2)
+            c = float(decCenter - self.fieldOfView/2) 
+            d = float(decCenter + self.fieldOfView/2)
+        except:
+            raise ValueError("")
+
+        for line in self.lines[0:]:
+            data = line.split()
+            if ((float(data[2])>=a and float(data[2])<=b)):
+                if((float(data[3])>=c and float(data[3])<=d)):
+                    brightGM.append(data[1])
+        bright=9999.0
+        for i in brightGM:
+            if bright>float(i):
+                bright=float(i)
+        del brightGM[:]
+        a = bright*10
+        a = int(a)
+        b = hex(a)
+        tempStr = 'x'
+        c = b.find(tempStr)
+        d = b[(b.find(tempStr)+1):]
+        if bright>=1.6 and bright<25.6:
+            d = "00"+d
+        elif bright>=0 and bright<1.6:
+            d ="000"+d
+        elif bright>=25.6 and bright<409.6:
+            d = "0"+d
+        elif bright<0 and bright>=-383.9:
+            b = hex(4095+a)
+            c = b.find(tempStr)
+            d = b[(b.find(tempStr)+1):]
+            d = "f"+d
         else:
-            rightAscension =  math.pi / 2 + self.env.getTime() * 2 * math.pi / (86164.1*1000000)
-            declination = self.env.getTime() * 2 * math.pi / self.env.getRotationalPeriod()
-            
-            while (rightAscension-self.fieldView/2) >= 2 * math.pi:
-                rightAscension = rightAscension - 2 * math.pi
-                
-            while (declination-self.fieldView/2) >= math.pi:
-                declination = declination - 2 * math.pi
-                
-            xMaxnum = float(rightAscension+self.fieldView/2)    #calculate the Max number in the x axle  
-            xMinnum = float(rightAscension-self.fieldView/2)    #calculate the Min number in the x axle
-            yMaxnum = float(declination+self.fieldView/2)       #calculate the Max number in the y axle
-            yMinnum = float(declination-self.fieldView/2)       #calculate the Min number in the y axle
-            #print xMaxnum,xMinnum,yMaxnum,yMinnum
-            
-            try:    
-                with open(self.starFile) as f:
-                
-                    content = f.readlines()
-                    for i in content[0:]:
-                        
-                        fields = i.split()   
-                        print fields
-                        if ((float(fields[2]) <= xMaxnum and float(fields[2]) >= xMinnum) ): 
-                            if ((float(fields[3]) <= yMaxnum and float(fields[3]) >= yMinnum)):                           
-                                list2.append(fields[1])
-                            #print "ID",fields[0], "star is in the square, its brightness is ", fields[1] 
-                            else:
-                                pass
-                            #raise ValueError("Invalid input")
-                        else:
-                            pass
-                #print list2
-                minbr = 9999
-                for k in list2:
-                    if float(minbr) > float(k):
-                            minbr = k
-                    #if minbr == 9999:
-                    #    minbr = None
-                
-                x= float(minbr)
-                a = x*10
-                a = int(a)
-                b = hex(a)
-                tempStr = 'x'
-                c = b.find(tempStr)
-                d = b[(b.find(tempStr)+1):]
-                if x>=1.6 and x<25.6:
-                    d = "00"+d
-                    print d
-                elif x>=0 and x<1.6:
-                    d ="000"+d
-                    print d
-                elif x>=25.6 and x<409.6:
-                    d = "0"+d
-                    print d
-                elif x>=409.6:
-                    print d
-                elif x<0 and x>=-383.9:
-                    b = hex(4095+a)
-                    c = b.find(tempStr)
-                    d = b[(b.find(tempStr)+1):]
-                    d = "f"+d
-                    print d
-                else:
-                    raise ValueError("")
-                minBright = d
-                #self.env.incrementTime(40)
-                try:
-                    if minBright=="18696":
-                        return None
-                    return minBright 
-                except:
-            
-                    return None
-                    raise ValueError("Sensor.serviceRequest: invalid return")  
-                
-                #return hex(float(minbr))         
-            except:
-                pass
-            self.env.incrementTime(40)
+            d = None
+        minBright = d
+        self.myEnv.incrementTime(40)
+        try:
+            return minBright
+        except:
+            return None
+            raise ValueError("")  
 
     
     def getSensorPosition(self):
