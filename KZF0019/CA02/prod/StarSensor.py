@@ -58,7 +58,7 @@ class StarSensor(object):
         return True
     
     def serviceRequest(self):
-     
+        brightGM =[]
         try:
             raCenter = float(math.pi/2+ self.myEnv.getTime()*(2*math.pi)/(((23 * 60 * 60) + (56 * 60) + 4.1) * 1000000))
             decCenter = float((self.myEnv.getTime())*(2*math.pi)/self.myEnv.getRotationalPeriod())
