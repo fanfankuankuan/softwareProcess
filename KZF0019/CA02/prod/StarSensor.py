@@ -79,7 +79,7 @@ class StarSensor(object):
             #print xMaxnum,xMinnum,yMaxnum,yMinnum
             
             try:    
-                with open(self.starFile) as f:
+                with open("CA02StarTestChart") as f:
                 
                     content = f.readlines()
                     for i in content[0:]:
