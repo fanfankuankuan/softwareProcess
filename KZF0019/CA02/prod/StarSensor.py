@@ -21,7 +21,6 @@ class StarSensor(object):
     def initializeSensor(self, starFile = None):
         list1 = []
         list2 = []
-        starCount = 0
         if(starFile == None):
             raise ValueError("StarSensor.initializeSensor:  invalid file type")
         if not(isinstance(starFile, types.StringType)):
@@ -86,22 +85,20 @@ class StarSensor(object):
             #print xMaxnum,xMinnum,yMaxnum,yMinnum
             
             try:    
-                with open(self.starFile) as f:
-                
-                    content = f.readlines()
-                    for i in content[0:]:
-                        
-                        fields = i.split()   
-                        print fields
-                        if ((float(fields[2]) <= xMaxnum and float(fields[2]) >= xMinnum) ): 
-                            if ((float(fields[3]) <= yMaxnum and float(fields[3]) >= yMinnum)):                           
-                                list2.append(fields[1])
-                            #print "ID",fields[0], "star is in the square, its brightness is ", fields[1] 
-                            else:
-                                pass
-                            #raise ValueError("Invalid input")
+               
+                for i in self.lines[0:]:
+                    
+                    fields = i.split()   
+                    print fields
+                    if ((float(fields[2]) <= xMaxnum and float(fields[2]) >= xMinnum) ): 
+                        if ((float(fields[3]) <= yMaxnum and float(fields[3]) >= yMinnum)):                           
+                            list2.append(fields[1])
+                        #print "ID",fields[0], "star is in the square, its brightness is ", fields[1] 
                         else:
                             pass
+                        #raise ValueError("Invalid input")
+                    else:
+                        pass
                 #print list2
                 minbr = 9999
                 for k in list2:
