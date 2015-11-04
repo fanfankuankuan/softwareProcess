@@ -117,7 +117,7 @@ class StarSensorTest(unittest.TestCase):
         position = self.myStarSensor.getSensorPosition()
         for item in range(1):
             self.assertAlmostEqual(position[item], sensorPosition[item], 5)
-             
+            
     def test_400_060_ShouldGetPositionAtMultipleOrbits(self):
         self.myEnv.incrementTime(self.time2Orbit + 42)
         sensorPosition = [4.71238898344738, 0.565460288267873]
