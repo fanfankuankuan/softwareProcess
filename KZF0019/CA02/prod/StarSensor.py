@@ -30,7 +30,7 @@ class StarSensor(object):
             raise ValueError("StarSensor.initializeSensor:  no file exists by the specified file name")
         try:
             #global lines
-            f = file(starFile)      
+            f = open(starFile, 'r')      
             self.lines = f.readlines() 
             #print "lines:" , lines  
             for line in self.lines[0:]:
