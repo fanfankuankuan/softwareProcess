@@ -32,10 +32,9 @@ class StarSensor(object):
 
             lines = fr.readlines()
             for line in lines:
-                infors = line.split()
-                for i in range(0,len(infors)):
-                    infors[i] = (float)(infors[i])
-                
+                #infors = line.split()
+                #for i in range(0,len(infors)):
+                #    infors[i] = (float)(infors[i])
                 starCount += 1
             return starCount
        
