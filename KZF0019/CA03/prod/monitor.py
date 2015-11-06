@@ -24,7 +24,8 @@ class Monitor(object):
             raise ValueError("monitor.intialize:  file exists by the specified file name")
             return False
         else:
-            
+            fr = file(logFile)
+            fr 
             return True
     def configure(self,environment):
         if not(isinstance(environment, En.Environment)):

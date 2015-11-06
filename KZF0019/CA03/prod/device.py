@@ -16,7 +16,8 @@ class device(object):
         self.env = environment
         return True
     def serviceRequest(self):
-        a = random.randrange(1.4)
+        
+        a = random.randrange(1,4)
         if a == 1:
             return "0000"
         if a == 2 or a == 3:
@@ -36,5 +37,8 @@ class device(object):
             d = c[2:]
             return d
         #self.env.incrementTime(40)
+#d = device()
+#a = d.serviceRequest()
+#print a
     
     

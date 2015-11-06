@@ -10,6 +10,7 @@ import CA02.prod.StarSensor as St
 import CA03.prod.device as De
 import  xml.dom.minidom
 import os
+
 class controller(object):
     def __init__(self):
         pass 
@@ -66,10 +67,20 @@ class controller(object):
         for i in range(0,len(dd)):
             self.d.append(dd[i].firstChild.data)
         
+        #rate
+        
+        zz = self.dom.getElementsByTagName("frame")
+        self.z = []
+        for i in range(0,len(zz)):
+            ite = zz[i]
+            ui = ite.getAttribute("rate")
+            self.z.append(ui)
+        #print self.z
         a1 = 0
         a2 = 0
         a3 = 0
        
+    
         if len(self.b) == 4 and len(self.c) == 4 and len(self.a) == 4:
             for i in range(4):
                 if self.b[i] == "Environment" or "Monitor" or "StarSensor" or "Device":
@@ -87,39 +98,55 @@ class controller(object):
         else :
             raise ValueError("Controller.initialize:  the file missed component.")
         
-        for child in self.dom.childNodes :
-            if child.tagName == "frame" :
-                rate = child.getAttribute("rate")
-                if rate == None:
-                    raise ValueError("Controller.initialize:  rate doesn't exist")
                 
         return self.d
                 
        
 
-    def run(self,microseconds):
-        if microseconds == None:
-            raise ValueError("Controller.run:  input is invalid.")
-        #self.a       
-        #self.b
-        #self.c
-        print self.c[0]
-        limit = int(microseconds)
-        while (self.c[0] > limit):
-            for i in range(0,len(self.d)):
-                operate = self.d[i]
-                if (operate == "Device"):
-                    ans = De.device.serviceRequest()
-
-                if (operate == "StarSensor"):
-                    ans = St.StarSensor.serviceRequest()
-                print ans
-                En.Environment.incrementTime(40)
-                limit = limit + En.Environment.getTime
-        time = En.Environment.getTime() + microseconds
-        return time
+    def run(self,microseconds = None):
+        try :
+            microseconds = int(microseconds)
+        except:
+            raise ValueError("Controller.run: invalid microseconds")
+        result = []
+        simulatedTime = 0
+        myEnv = En.Environment()
+        myEnv.getTime()
+        
+        #Mon = Mo.Monitor
+        Devices = De.device()
+        Devices.configure(myEnv)
+        myStarSensor = St.StarSensor(float(self.c[2]))
+        
+        #Mon.initialize(self.pElement[1])  
+        myEnv.setRotationalPeriod(int(self.c[0]))
+        myStarSensor.configure(myEnv)
+        #Mon.configure(myEnv)  
+   
+        #if microseconds > self.timeLimit:
+        #    flag = 1
+        time1 = self.z[0]
+        if len(self.d) > 0:
+            while (int(time1) > int(simulatedTime + microseconds)):
+                for i in range(0,len(self.d)):
+                    if self.d[i] == "Device":
+                        r = Devices.serviceRequest()
+                        result.append(r)
+                        simulatedTime += 40
+                    if self.d[i] == "StarSensor":
+                        r = myStarSensor.serviceRequest()
+                        result.append(r)
+                        simulatedTime += 40
+                    #myEnv.incrementTime(40)
+                    
+        else:
+            raise ValueError("Controller.run: invalid Frame")
+        print result
+        print len(result)            
+        return simulatedTime + microseconds
+    
 d = controller()
 f = d.initialize("abc.xml")
-z = d.run(90000) 
+z = d.run(990000) 
 print z
 print f
