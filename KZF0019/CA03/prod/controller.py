@@ -120,6 +120,6 @@ class controller(object):
         return time
 d = controller()
 f = d.initialize("abc.xml")
-a = d.run(990000) 
-print a 
+z = d.run(990000) 
+print z
 print f
