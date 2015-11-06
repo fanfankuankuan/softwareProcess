@@ -35,6 +35,6 @@ class device(object):
             c = hex(b)
             d = c[2:]
             return d
-        self.env.incrementTime(40)
+        #self.env.incrementTime(40)
     
     

@@ -110,7 +110,7 @@ class controller(object):
                 operate = self.d[i]
                 if (operate == "Device"):
                     ans = De.device.serviceRequest()
-                    
+
                 if (operate == "StarSensor"):
                     ans = St.StarSensor.serviceRequest()
                 print ans
