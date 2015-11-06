@@ -4,8 +4,8 @@
 <parm name="rotationalPeriod">10000000</parm> 
 </definition>
 
-<definition component="onitor"> 
-<parm name="logFile">logfile.txt</parm>
+<definition component="Monitor"> 
+<parm name="logFile"></parm>
 </definition>
 
 <definition component="StarSensor">
