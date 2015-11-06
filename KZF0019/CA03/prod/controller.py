@@ -106,8 +106,8 @@ class controller(object):
         print self.c[0]
         limit = int(microseconds)
         while (self.c[0] > limit):
-            for i in len(self.c[0]):
-                operate = self.c[i]
+            for i in len(self.d):
+                operate = self.d[i]
                 if (operate == "Device"):
                     ans = De.device.serviceRequest()
                     
