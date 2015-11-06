@@ -103,7 +103,7 @@ class controller(object):
         #self.a       
         #self.b
         #self.c
-        while (self.c[0] > En.Environment.getTime()):
+        while (self.c[0] > microseconds + En.Environment.getTime()):
             for i in len(self.c):
                 operate = self.c[i]
                 if (operate == "Device"):
@@ -114,8 +114,8 @@ class controller(object):
                 print ans
                 En.Environment.incrementTime(40)
         
-        microseconds = En.Environment.getTime()
-        return microseconds
+        time = En.Environment.getTime() + microseconds
+        return time
 d = controller()
 f = d.initialize("abc.xml")
 a = d.run(990000) 
