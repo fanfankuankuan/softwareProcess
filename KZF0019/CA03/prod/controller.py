@@ -30,6 +30,7 @@ class controller(object):
             self.dom = xml.dom.minidom.parse(architectureFile)
         except:
             raise ValueError("Controller.architectureFile:  Cannot open the file")
+        
         root = self.dom.documentElement
         if root.nodeName == None:
             return []
