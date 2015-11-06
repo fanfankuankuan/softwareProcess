@@ -103,7 +103,7 @@ class controller(object):
         #self.a       
         #self.b
         #self.c
-        limit = microseconds
+        limit = int(microseconds)
         while (self.c[0] > limit):
             for i in len(self.c):
                 operate = self.c[i]
