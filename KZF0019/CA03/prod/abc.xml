@@ -1,4 +1,4 @@
-<configuraion>
+<configuration>
 
 <definition component="Environment">
 <parm name="rotationalPeriod">10000000</parm> 
@@ -20,4 +20,4 @@
 <device>Device</device> 
 <device>StarSensor</device>
 <device>Device</device> </frame>
-</configuraion>
+</configuration>

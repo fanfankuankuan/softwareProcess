@@ -36,6 +36,7 @@ class controller(object):
             return []
         else:
             pass
+        
         #parm and definition
         cc=self.dom.getElementsByTagName('parm')
         
@@ -91,6 +92,7 @@ class controller(object):
                 rate = child.getAttribute("rate")
                 if rate == None:
                     raise ValueError("Controller.initialize:  rate doesn't exist")
+                
         return self.d
                 
        
@@ -101,21 +103,21 @@ class controller(object):
         #self.a       
         #self.b
         #self.c
-        for i in len(self.c):
-            operate = self.c[i]
-            if (operate == "Device"):
-                ans = De.device.serviceRequest()
-            if (operate == "StarSensor"):
-                ans = St.StarSensor.serviceRequest()
-            print ans
-            En.Environment.incrementTime(40)
-        dd = self.dom.getElementsByTagName('device')
-        
+        while (self.c[0] > En.Environment.getTime()):
+            for i in len(self.c):
+                operate = self.c[i]
+                if (operate == "Device"):
+                    ans = De.device.serviceRequest()
+                    
+                if (operate == "StarSensor"):
+                    ans = St.StarSensor.serviceRequest()
+                print ans
+                En.Environment.incrementTime(40)
         
         microseconds = En.Environment.getTime()
         return microseconds
 d = controller()
 f = d.initialize("abc.xml")
-#a = d.run(990000) 
-#print a 
+a = d.run(990000) 
+print a 
 print f
