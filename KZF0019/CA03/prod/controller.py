@@ -103,6 +103,7 @@ class controller(object):
         #self.a       
         #self.b
         #self.c
+        print self.c[0]
         limit = int(microseconds)
         while (self.c[0] > limit):
             for i in len(self.c):
