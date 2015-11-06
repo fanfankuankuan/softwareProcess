@@ -5,6 +5,7 @@ Created on Oct 18, 2015
 '''
 import types
 from genericpath import isfile
+import os
 import CA02.prod.Environment as En
 
 class Monitor(object):
@@ -18,9 +19,12 @@ class Monitor(object):
             raise ValueError("monitor.intialize:  invalid file name")
             return False
         if not isfile(logFile):
-            raise ValueError("monitor.intialize:  no file exists by the specified file name")
+            raise ValueError("monitor.intialize:  the file name is not a file")
+        if os.path.exists(logFile):
+            raise ValueError("monitor.intialize:  file exists by the specified file name")
             return False
         else:
+            
             return True
     def configure(self,environment):
         if not(isinstance(environment, En.Environment)):
@@ -30,4 +34,4 @@ class Monitor(object):
     def serviceRequest(self,source,target,event):
         time = []
         return time
-    
+        
