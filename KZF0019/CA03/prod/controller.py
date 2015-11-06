@@ -35,7 +35,9 @@ class controller(object):
             return []
         else:
             pass
+        #parm and definition
         cc=self.dom.getElementsByTagName('parm')
+        
         self.a = []
         self.c = []
         
@@ -47,14 +49,20 @@ class controller(object):
                 self.a.append(un)
         except:
             raise ValueError("Controller.initialized:  there is not enough information.")
+        
+        #component
         bb = self.dom.getElementsByTagName('definition')
         self.b= []
-        
-        #
         for i in range(0,len(bb)):
             item = bb[i]
             un = item.getAttribute("component")
             self.b.append(un)
+            
+        #device
+        dd = self.dom.getElementsByTagName('device')
+        self.d = []
+        for i in range(0,len(dd)):
+            self.d.append(dd[i].firstChild.data)
         
         a1 = 0
         a2 = 0
@@ -82,7 +90,7 @@ class controller(object):
                 rate = child.getAttribute("rate")
                 if rate == None:
                     raise ValueError("Controller.initialize:  rate doesn't exist")
-                
+        return self.d
                 
        
 
@@ -99,11 +107,11 @@ class controller(object):
             if (operate == "StarSensor"):
                 ans = St.StarSensor.serviceRequest()
             print ans
-            microseconds = En.Environment.incrementTime(40)
+            En.Environment.incrementTime(40)
         dd = self.dom.getElementsByTagName('device')
         
         
-        
+        microseconds = En.Environment.getTime()
         return microseconds
 d = controller()
 f = d.initialize("abc.xml")

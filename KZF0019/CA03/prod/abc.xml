@@ -5,7 +5,7 @@
 </definition>
 
 <definition component="Monitor"> 
-<parm name="logFile"></parm>
+<parm name="logFile">logfile.txt</parm>
 </definition>
 
 <definition component="StarSensor">
