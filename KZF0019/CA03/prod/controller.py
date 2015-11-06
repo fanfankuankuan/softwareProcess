@@ -103,7 +103,8 @@ class controller(object):
         #self.a       
         #self.b
         #self.c
-        while (self.c[0] > microseconds + En.Environment.getTime()):
+        limit = microseconds
+        while (self.c[0] > limit):
             for i in len(self.c):
                 operate = self.c[i]
                 if (operate == "Device"):
@@ -113,7 +114,7 @@ class controller(object):
                     ans = St.StarSensor.serviceRequest()
                 print ans
                 En.Environment.incrementTime(40)
-        
+                limit = limit + En.Environment.getTime
         time = En.Environment.getTime() + microseconds
         return time
 d = controller()
