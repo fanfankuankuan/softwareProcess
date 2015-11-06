@@ -39,12 +39,14 @@ class controller(object):
         self.a = []
         self.c = []
         
-        for i in range(0,len(cc)):
-            self.c.append(cc[i].firstChild.data)
-            item = cc[i]
-            un=item.getAttribute("name")
-            self.a.append(un)
-            
+        try:
+            for i in range(0,len(cc)):
+                self.c.append(cc[i].firstChild.data)
+                item = cc[i]
+                un=item.getAttribute("name")
+                self.a.append(un)
+        except:
+            raise ValueError("Controller.initialized:  there is not enough information.")
         bb = self.dom.getElementsByTagName('definition')
         self.b= []
         
