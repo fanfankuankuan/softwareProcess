@@ -8,6 +8,7 @@ from genericpath import isfile
 import CA02.prod.Environment as En
 import CA02.prod.StarSensor as St
 import CA03.prod.device as De
+import CA03.prod.monitor as Mo
 import  xml.dom.minidom
 import os
 
@@ -122,7 +123,9 @@ class controller(object):
         myEnv.setRotationalPeriod(int(self.c[0]))
         myStarSensor.configure(myEnv)
         #Mon.configure(myEnv)  
-   
+        mm = Mo.Monitor()
+        mm.configure(myEnv)
+        mm.initialize(str(self.c[1]))
         #if microseconds > self.timeLimit:
         #    flag = 1
         time1 = self.z[0]
@@ -133,20 +136,30 @@ class controller(object):
                         r = Devices.serviceRequest()
                         result.append(r)
                         simulatedTime += 40
+                        mm.serviceRequest("Controller","Device","serviceRequest")
+                        mm.serviceRequest("Device","Controller",str(r))
                     if self.d[i] == "StarSensor":
                         r = myStarSensor.serviceRequest()
                         result.append(r)
                         simulatedTime += 40
-                    #myEnv.incrementTime(40)
+                        mm.serviceRequest("Controller","StarSensor","serviceRequest" )
+                        mm.serviceRequest("StarSensor","Controller",str(r))
+                    myEnv.incrementTime(40)
                     
         else:
             raise ValueError("Controller.run: invalid Frame")
-        print result
-        print len(result)            
+        #print result
+        #print len(result)            
+        
+        
+        #print myEnv.getTime()
+        
+        
+        
         return simulatedTime + microseconds
     
 d = controller()
 f = d.initialize("abc.xml")
 z = d.run(990000) 
-print z
-print f
+#print z
+#print f
