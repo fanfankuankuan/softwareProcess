@@ -1,4 +1,4 @@
-<configuration>
+<configuraion>
 
 <definition component="Environment">
 <parm name="rotationalPeriod">10000000</parm> 
