@@ -4,7 +4,7 @@
 <parm name="rotationalPeriod">10000000</parm> 
 </definition>
 
-<definition component="Monitor"> 
+<definition component="onitor"> 
 <parm name="logFile">logfile.txt</parm>
 </definition>
 

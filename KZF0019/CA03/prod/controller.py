@@ -104,7 +104,7 @@ class controller(object):
         
         return microseconds
 d = controller()
-f = d.initialize("2c.ml")
+f = d.initialize("abc.xml")
 #a = d.run(990000) 
 #print a 
 print f
