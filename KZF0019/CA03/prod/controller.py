@@ -148,9 +148,6 @@ class controller(object):
                     
         else:
             raise ValueError("Controller.run: invalid Frame")
-        #print result
-        #print len(result)            
-        #print myEnv.getTime()
         
         return simulatedTime + microseconds
     
