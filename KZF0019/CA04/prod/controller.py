@@ -123,16 +123,16 @@ class controller(object):
         #Mon = Mo.Monitor
         Devices = De.device()
         Devices.configure(myEnv)
-        myStarSensor = St.StarSensor(float(self.c[2]))
+        myStarSensor = St.StarSensor(float(self.c[4]))
         
         #Mon.initialize(self.pElement[1])  
-        myEnv.setRotationalPeriod(int(self.c[0]))
+        myEnv.setRotationalPeriod(int(self.c[1]))
         myStarSensor.configure(myEnv)
         #Mon.configure(myEnv)  
         
         mm = Mo.Monitor()
         mm.configure(myEnv)
-        mm.initialize(str(self.c[1]))
+        mm.initialize(str(self.c[3]))
         #if microseconds > self.timeLimit:
         #    flag = 1
         
