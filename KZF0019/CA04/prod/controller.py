@@ -7,8 +7,9 @@ import types
 from genericpath import isfile
 import CA02.prod.Environment as En
 import CA02.prod.StarSensor as St
-import CA03.prod.device as De
-import CA03.prod.monitor as Mo
+import CA04.prod.device as De
+import CA04.prod.monitor as Mo
+import CA04.prod.SolarCollector as So
 import  xml.dom.minidom
 import os
 
@@ -39,7 +40,7 @@ class controller(object):
         else:
             pass
         
-        #parm and definition
+        #parm and name
         cc=self.dom.getElementsByTagName('parm')
         
         self.a = []
@@ -69,32 +70,32 @@ class controller(object):
             self.d.append(dd[i].firstChild.data)
         
         #rate
-        
         zz = self.dom.getElementsByTagName("frame")
         self.z = []
         for i in range(0,len(zz)):
             ite = zz[i]
             ui = ite.getAttribute("rate")
             self.z.append(ui)
+            
         #print self.z
         a1 = 0
         a2 = 0
         a3 = 0
        
     
-        if len(self.b) == 4 and len(self.c) == 4 and len(self.a) == 4:
-            for i in range(4):
-                if self.b[i] == "Environment" or "Monitor" or "StarSensor" or "Device":
+        if len(self.b) == 5 and len(self.c) == 6 and len(self.a) == 6:
+            for i in range(6):
+                if self.b[i] == "SolarCollector" or "Environment" or "Monitor" or "StarSensor" or "Device":
                     a1 = a1 + 1
-                if self.a[i] == "rotationalPeriod" or "logFile" or "fieldOfView" or "starFile":
+                if self.a[i] == "starTime" or "rotationalPeriod" or "logFile" or "degradation" or "fieldOfView" or "starFile":
                     a2 = a2 + 1
                 if self.c[i] == "10000000" or "logfile.txt" or "starFile":
                     a3 = a3 + 1
-            if not a1 == 4:
+            if not a1 == 5:
                 raise ValueError("Controller.intialize:  the information of component is missing")
-            if not a2 == 4:
+            if not a2 == 6:
                 raise ValueError("Controller.intialize:  the information of name is missing")
-            if not a3 == 4:
+            if not a3 == 3:
                 raise ValueError("Controller.intialize:  the information of parm is missing") 
         else :
             raise ValueError("Controller.initialize:  the file missed component.")
@@ -110,7 +111,11 @@ class controller(object):
         except:
             raise ValueError("Controller.run: invalid microseconds")
         result = []
+        
         simulatedTime = 0
+        
+        Solar = So.SolarCollector()
+        
         myEnv = En.Environment()
         myEnv.getTime()
         
@@ -123,15 +128,23 @@ class controller(object):
         myEnv.setRotationalPeriod(int(self.c[0]))
         myStarSensor.configure(myEnv)
         #Mon.configure(myEnv)  
+        
         mm = Mo.Monitor()
         mm.configure(myEnv)
         mm.initialize(str(self.c[1]))
         #if microseconds > self.timeLimit:
         #    flag = 1
+        
         time1 = self.z[0]
         if len(self.d) > 0:
             while (int(time1) > int(simulatedTime + microseconds)):
                 for i in range(0,len(self.d)):
+                    if self.d[i] == "SolarCollector":
+                        r = Solar.service()
+                        result.append(r)
+                        simulatedTime += 40
+                        mm.serviceRequest("Controller","SolarCollector","service")
+                        mm.serviceRequest("SolarCollector","Controller",str(r))
                     if self.d[i] == "Device":
                         r = Devices.serviceRequest()
                         result.append(r)
