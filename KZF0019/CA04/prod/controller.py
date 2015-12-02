@@ -85,12 +85,13 @@ class controller(object):
     
         if len(self.b) == 5 and len(self.c) == 6 and len(self.a) == 6:
             for i in range(6):
-                if self.b[i] == "SolarCollector" or "Environment" or "Monitor" or "StarSensor" or "Device":
-                    a1 = a1 + 1
                 if self.a[i] == "starTime" or "rotationalPeriod" or "logFile" or "degradation" or "fieldOfView" or "starFile":
                     a2 = a2 + 1
                 if self.c[i] == "10000000" or "logfile.txt" or "starFile":
                     a3 = a3 + 1
+            for i in range(5):
+                if self.b[i] == "SolarCollector" or "Environment" or "Monitor" or "StarSensor" or "Device":
+                    a1 = a1 + 1
             if not a1 == 5:
                 raise ValueError("Controller.intialize:  the information of component is missing")
             if not a2 == 6:
