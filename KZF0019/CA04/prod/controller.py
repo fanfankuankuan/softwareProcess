@@ -96,7 +96,7 @@ class controller(object):
                 raise ValueError("Controller.intialize:  the information of component is missing")
             if not a2 == 6:
                 raise ValueError("Controller.intialize:  the information of name is missing")
-            if not a3 == 3:
+            if not a3 == 6:
                 raise ValueError("Controller.intialize:  the information of parm is missing") 
         else :
             raise ValueError("Controller.initialize:  the file missed component.")
