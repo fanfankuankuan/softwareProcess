@@ -33,7 +33,7 @@ class Monitor(object):
             #self.time = 0
             
             return True
-    def configure(self,environment):
+    def configure(self,environment = None):
         if not(isinstance(environment, En.Environment)):
             raise ValueError("monitor.configure:  file is invalid")
         self.env = environment
