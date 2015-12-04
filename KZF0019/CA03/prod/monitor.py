@@ -12,7 +12,7 @@ import CA02.prod.Environment as En
 class Monitor(object):
     def __init__(self):
         pass
-    def initialize(self,logFile):
+    def initialize(self,logFile = None):
         if(logFile == None):
             raise ValueError("monitor.intialize:  invalid file type")
             return False
