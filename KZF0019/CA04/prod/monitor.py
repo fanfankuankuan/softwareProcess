@@ -51,6 +51,6 @@ class Monitor(object):
         
         if (self.n % 2==0 ):
             self.time = self.time + 40
-        self.n = self.n + 2
+        self.n = self.n + 1
         return self.time
         
