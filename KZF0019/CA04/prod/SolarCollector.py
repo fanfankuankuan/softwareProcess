@@ -15,6 +15,7 @@ class SolarCollector(object):
         self.env = environment
         return True
     def serviceRequest(self,minbr):
+        
         x= float(minbr)
         a = x*10
         a = int(a)
