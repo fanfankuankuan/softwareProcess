@@ -24,20 +24,21 @@ class SolarCollector(object):
         d = b[(b.find(tempStr)+1):]
         if x>=1.6 and x<25.6:
             d = "00"+d
-            print d
+            
         elif x>=0 and x<1.6:
             d ="000"+d
-            print d
+            
         elif x>=25.6 and x<409.6:
             d = "0"+d
-            print d
+           
         elif x>=409.6:
-            print d
+            pass
         elif x<0 and x>=-383.9:
             b = hex(4095+a)
             c = b.find(tempStr)
             d = b[(b.find(tempStr)+1):]
             d = "f"+d
-            print d
+            
         else:
             raise ValueError("")
+        return d
