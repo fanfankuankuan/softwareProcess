@@ -26,7 +26,10 @@ class Monitor(object):
             self.fw = open(logFile,'a')
             return False
         else:
-            self.fw = open(logFile,'a')
+            try:
+                self.fw = open(logFile,'a')
+            except:
+                raise ValueError("Monitor.coninitialize:  can't open file.")
             #self.time = 0
             
             return True
