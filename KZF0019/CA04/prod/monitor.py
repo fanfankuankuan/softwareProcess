@@ -34,7 +34,7 @@ class Monitor(object):
         if not(isinstance(environment, En.Environment)):
             raise ValueError("monitor.configure:  file is invalid")
         self.env = environment
-        self.time = 0
+        self.time = En.Environment.getTime(self)
         self.n = 0
         return True
     def serviceRequest(self,source,target,event):
