@@ -1,4 +1,4 @@
-import CA03.prod.Controller as Controller
+import CA03.prod.controller as Controller
 import unittest
 import gc
 
@@ -7,7 +7,7 @@ class ControllerTest(unittest.TestCase):
 
     def setUp(self):
         self.className = "Controller"
-        self.testController = Controller.Controller()
+        self.testController = Controller.controller()
 
     def tearDown(self):
         pass
