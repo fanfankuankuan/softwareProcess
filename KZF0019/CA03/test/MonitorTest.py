@@ -1,4 +1,4 @@
-import CA03.prod.Monitor as Monitor
+import CA03.prod.monitor as Monitor
 import CA02.prod.Environment as Environment
 import unittest
 import os
