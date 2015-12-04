@@ -1,13 +1,13 @@
 import unittest
 import random
-import CA03.prod.Device as Device
+import CA03.prod.device as Device
 import CA02.prod.Environment as Environment
 
 
 class DeviceTest(unittest.TestCase):
     
     def setUp(self):
-        self.testDevice = Device.Device()
+        self.testDevice = Device.device()
         self.environment = Environment.Environment()
         self.testDevice.configure(self.environment)
         self.className = "Device"
@@ -17,7 +17,7 @@ class DeviceTest(unittest.TestCase):
 
 # constructor
     def test_100_010_ShouldConstructWithNoParm(self):
-        self.assertIsInstance(Device.Device(), Device.Device,
+        self.assertIsInstance(Device.device(), Device.device,
                               "Major:  construction failure")
          
 # configure
@@ -95,7 +95,7 @@ class DeviceTest(unittest.TestCase):
     def test_300_910_ShouldFailServiceRequestIfNotInitialized(self):
         expectedString = self.className + ".serviceRequest:"
         with self.assertRaises(ValueError) as context:
-            testDevice = Device.Device()
+            testDevice = Device.device()
             testDevice.serviceRequest()
             self.fail("Minor:  failure to check for initialization")
         self.assertEquals(expectedString, context.exception.args[0][0:len(expectedString)],
