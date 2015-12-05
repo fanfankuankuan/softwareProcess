@@ -27,35 +27,6 @@ class SolarCollector(object):
             degradation = self.getDegradation()
             energy = int("7fff", 16) * (100 - degradation) / 100
             ret = '{0:04x}'.format(int(energy)) 
-            
+        print ret
         #self.environment.incrementTime(40)
         return ret
-        
-        
-#         x= (100 - float(minbr)) / 100 * 32767
-#        
-#         a = int(x)
-#         b = hex(a)
-#         tempStr = 'x'
-#         c = b.find(tempStr)
-#         d = b[(b.find(tempStr)+1):]
-#         if x>=1.6 and x<25.6:
-#             d = "00"+d
-#             
-#         elif x>=0 and x<1.6:
-#             d ="000"+d
-#             
-#         elif x>=25.6 and x<409.6:
-#             d = "0"+d
-#            
-#         elif x>=409.6:
-#             pass
-#         elif x<0 and x>=-383.9:
-#             b = hex(4095+a)
-#             c = b.find(tempStr)
-#             d = b[(b.find(tempStr)+1):]
-#             d = "f"+d
-#             
-#         else:
-#             raise ValueError("")
-#         return d
