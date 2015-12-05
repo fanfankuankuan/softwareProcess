@@ -108,6 +108,7 @@ class controller(object):
 
     def run(self):
         microseconds = self.c[0]
+        
         try :
             microseconds = int(microseconds)
         except:
@@ -119,6 +120,7 @@ class controller(object):
         Solar = So.SolarCollector()
         
         myEnv = En.Environment()
+        myEnv.incrementTime(self.c[0])
         myEnv.getTime()
         
         #Mon = Mo.Monitor
