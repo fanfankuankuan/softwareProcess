@@ -1,46 +1,49 @@
 '''
-Created on Nov 30, 2015
+Created on Dec 4, 2015
 
 @author: KevinFAN
 '''
-import CA02.prod.Environment as En
+import CA04.prod.Environment as Environment
+import math
 
 class SolarCollector(object):
-    def __init__(self):
-        pass
-
-    def configure(self,environment):
-        if not(isinstance(environment, En.Environment)):
-            raise ValueError("device.configure:  file is invalid")
-        self.env = environment
-        #print En.Environment.getTime(self)
-        return True
-    def serviceRequest(self,minbr):
+     def __init__(self):
+  
+        self.environment = None
         
-        x= (100 - float(minbr)) / 100 * 32767
-
-        a = int(x)
-        b = hex(a)
-        tempStr = 'x'
-        c = b.find(tempStr)
-        d = b[(b.find(tempStr)+1):]
-        if x>=1.6 and x<25.6:
-            d = "00"+d
-            
-        elif x>=0 and x<1.6:
-            d ="000"+d
-            
-        elif x>=25.6 and x<409.6:
-            d = "0"+d
-           
-        elif x>=409.6:
-            pass
-        elif x<0 and x>=-383.9:
-            b = hex(4095+a)
-            c = b.find(tempStr)
-            d = b[(b.find(tempStr)+1):]
-            d = "f"+d
-            
+     def configure(self, environment = None):
+        """
+        Passes information about the simulation environment to the collector.
+        Returns: True
+        """
+        diagMethod = "configure:  "
+        if (environment == None):
+            raise ValueError('SolarCollector.configure:  No environment been configured')
+        if not (isinstance(environment, Environment.Environment)):
+            raise ValueError('SolarCollector.configure:  No environment been configured')
+        self.environment = environment
+        return True
+    
+     def getDegradation(self):
+        if (self.environment != None):
+            return self.environment.degradation
+        return None
+    
+    
+     def serviceRequest(self):
+    
+        if (self.environment == None):
+            raise ValueError("SolarCollector.serviceRequest:  environment has not yet been called")
+        
+        daytime = long((23*3600+56*60+4.1)*1e6)
+        RadSatellite=2*math.pi*(self.environment.SimulatedClock%daytime)/daytime
+        
+        if (RadSatellite <= 8.6 or RadSatellite >= 351.4):
+            ret = "0000"
         else:
-            raise ValueError("")
-        return d
+            degradation = self.getDegradation()
+            energy = int("7fff", 16) * (100 - degradation) / 100
+            ret = '{0:04x}'.format(int(energy)) 
+            
+        self.environment.incrementTime(40)
+        return ret
