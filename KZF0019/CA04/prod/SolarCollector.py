@@ -18,9 +18,9 @@ class SolarCollector(object):
     def serviceRequest(self,num):
         degradation = int(num)
         daytime = long((23*3600+56*60+4.1)*1e6)
-        print degradation
+        #print degradation
         RadSatellite=2*math.pi*(self.env.getTime()%daytime)/daytime
-        
+        print RadSatellite
         if (RadSatellite <= 8.6 or RadSatellite >= 351.4):
             ret = "0000"
         else:
