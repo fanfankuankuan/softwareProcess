@@ -9,7 +9,7 @@ import CA02.prod.Environment as En
 import CA02.prod.StarSensor as St
 import CA04.prod.device as De
 import CA04.prod.monitor as Mo
-import CA04.sandbox.SolarCollector as So
+import CA04.prod.SolarCollector as So
 import  xml.dom.minidom
 import os
 
