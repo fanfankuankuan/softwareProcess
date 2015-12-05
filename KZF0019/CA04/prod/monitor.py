@@ -39,7 +39,7 @@ class Monitor(object):
         return True
     def serviceRequest(self,source,target,event):
         
-        #time = self.env.getTime()
+        self.time = self.env.getTime()
         self.fw.write(str(self.time))
         self.fw.write('\t')
         self.fw.write(source)
@@ -49,8 +49,8 @@ class Monitor(object):
         self.fw.write(event)
         self.fw.write('\n')
         
-        if (self.n % 2==0 ):
-            self.time = self.time + 40
-        self.n = self.n + 1
+        #if (self.n % 2==0 ):
+        #    self.time = self.time + 40
+        #self.n = self.n + 1
         return self.time
         

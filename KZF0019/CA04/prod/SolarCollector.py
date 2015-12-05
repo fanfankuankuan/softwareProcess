@@ -16,10 +16,9 @@ class SolarCollector(object):
         #print En.Environment.getTime(self)
         return True
     def serviceRequest(self,minbr):
-        #print minbr
-        print self.env.getTime()
+        
         x= (100 - float(minbr)) / 100 * 32767
-        #a = x*10
+
         a = int(x)
         b = hex(a)
         tempStr = 'x'
