@@ -4,7 +4,7 @@
 </definition>
 
 <definition component="Environment">
-<parm name="starTime">500</parm>
+<parm name="starTime">0</parm>
 <parm name="rotationalPeriod">10000000</parm> 
 <parm name="degradation">50</parm>
 </definition>

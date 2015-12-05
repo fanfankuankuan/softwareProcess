@@ -27,6 +27,6 @@ class SolarCollector(object):
             degradation = self.getDegradation()
             energy = int("7fff", 16) * (100 - degradation) / 100
             ret = '{0:04x}'.format(int(energy)) 
-        print ret
+        
         #self.environment.incrementTime(40)
         return ret
