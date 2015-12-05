@@ -19,7 +19,7 @@ class SolarCollector(object):
         x= (100 - float(minbr)) / 100 * 32767
         #a = x*10
         a = int(x)
-        b = hex(x)
+        b = hex(a)
         tempStr = 'x'
         c = b.find(tempStr)
         d = b[(b.find(tempStr)+1):]
