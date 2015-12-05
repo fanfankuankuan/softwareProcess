@@ -126,7 +126,7 @@ class controller(object):
         myEnv.getTime()
         
         Solar.configure(myEnv)
-        
+        myEnv.setdegradationnum(self.c[2])
         #Mon = Mo.Monitor
         Devices = De.device()
         Devices.configure(myEnv)
@@ -149,7 +149,7 @@ class controller(object):
                 for i in range(0,len(self.d)):
                     #while(int(simulatedTime + microseconds) > self.c[0] ):
                     if self.d[i] == "SolarCollector":
-                        r = Solar.serviceRequest(self.c[2])
+                        r = Solar.serviceRequest()
                         result.append(r)
                         simulatedTime += 40
                         mm.serviceRequest("Controller","SolarCollector","service")

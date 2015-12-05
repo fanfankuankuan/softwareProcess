@@ -15,7 +15,8 @@ class SolarCollector(object):
         self.env = environment
         #print En.Environment.getTime(self)
         return True
-    def serviceRequest(self,num):
+    def serviceRequest(self):
+        num = self.env.getdegradationnum()
         degradation = int(num)
         daytime = long((23*3600+56*60+4.1)*1e6)
         #print degradation
