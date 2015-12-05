@@ -117,7 +117,9 @@ class controller(object):
         
         simulatedTime = 0
         
+        
         Solar = So.SolarCollector()
+        Solar.configure(myEnv)
         
         myEnv = En.Environment()
         myEnv.incrementTime(int(microseconds))
