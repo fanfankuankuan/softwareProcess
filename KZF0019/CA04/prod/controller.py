@@ -142,7 +142,8 @@ class controller(object):
                 for i in range(0,len(self.d)):
                     #while(int(simulatedTime + microseconds) > self.c[0] ):
                     if self.d[i] == "SolarCollector":
-                        r = Solar.serviceRequest(self.c[2])
+                        r = Solar.serviceRequest(self.
+2])
                         result.append(r)
                         simulatedTime += 40
                         mm.serviceRequest("Controller","SolarCollector","service")
