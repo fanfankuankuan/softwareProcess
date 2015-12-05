@@ -106,7 +106,8 @@ class controller(object):
                 
        
 
-    def run(self,microseconds = None):
+    def run(self):
+        microseconds = self.c[0]
         try :
             microseconds = int(microseconds)
         except:
@@ -171,6 +172,6 @@ class controller(object):
     
 d = controller()
 f = d.initialize("abc.xml")
-z = d.run(990000) 
+z = d.run() 
 #print z
 #print f
