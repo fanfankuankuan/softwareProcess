@@ -144,25 +144,25 @@ class controller(object):
                     if self.d[i] == "SolarCollector":
                         r = Solar.serviceRequest(self.c[2])
                         result.append(r)
-                        #simulatedTime += 40
-                        mm.serviceRequest("Controller","SolarCollector","service")
                         simulatedTime += 40
+                        mm.serviceRequest("Controller","SolarCollector","service")
+                        #simulatedTime += 40
                         mm.serviceRequest("SolarCollector","Controller",str(r))
                     if self.d[i] == "Device":
                         r = Devices.serviceRequest()
                         result.append(r)
-                        #simulatedTime += 40
-                        mm.serviceRequest("Controller","Device","serviceRequest")
                         simulatedTime += 40
+                        mm.serviceRequest("Controller","Device","serviceRequest")
+                        #simulatedTime += 40
                         mm.serviceRequest("Device","Controller",str(r))
                     if self.d[i] == "StarSensor":
                         r = myStarSensor.serviceRequest()
                         result.append(r)
-                        #simulatedTime += 40
-                        mm.serviceRequest("Controller","StarSensor","serviceRequest" )
                         simulatedTime += 40
+                        mm.serviceRequest("Controller","StarSensor","serviceRequest" )
+                        #simulatedTime += 40
                         mm.serviceRequest("StarSensor","Controller",str(r))
-                    myEnv.incrementTime(40)
+                    #myEnv.incrementTime(40)
                     #simulatedTime += 40
         else:
             raise ValueError("Controller.run: invalid Frame")
