@@ -48,10 +48,9 @@ class Monitor(object):
         self.fw.write('\t')
         self.fw.write(event)
         self.fw.write('\n')
-        self.env.incrementTime(40) 
         #simulatedTime += 40
-        #if (self.n % 2==0 ):
-        #    self.time = self.time + 40
-        #self.n = self.n + 1
+        if (self.n % 2==0 ):
+            self.env.incrementTime(40) 
+        self.n = self.n + 1
         return self.time
         
