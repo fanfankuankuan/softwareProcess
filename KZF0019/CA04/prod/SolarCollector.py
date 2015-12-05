@@ -3,7 +3,7 @@ Created on Dec 4, 2015
 
 @author: KevinFAN
 '''
-import CA04.prod.Environment as Environment
+import CA02.prod.Environment as Environment
 import math
 
 class SolarCollector(object):
