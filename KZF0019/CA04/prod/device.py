@@ -10,9 +10,11 @@ class device(object):
     
     def __init__(self):
         pass
-    def configure(self,environment):
+    def configure(self,environment = None):
         if not(isinstance(environment, En.Environment)):
             raise ValueError("device.configure:  file is invalid")
+        if environment == None:
+            raise ValueError("device.configure:  input error.")
         self.env = environment
         return True
     def serviceRequest(self):
