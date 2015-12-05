@@ -9,7 +9,7 @@ import CA02.prod.Environment as En
 import CA02.prod.StarSensor as St
 import CA04.prod.device as De
 import CA04.prod.monitor as Mo
-import CA04.prod.SolarCollector as So
+import CA04.sandbox.SolarCollector as So
 import  xml.dom.minidom
 import os
 
@@ -142,7 +142,7 @@ class controller(object):
                 for i in range(0,len(self.d)):
                     #while(int(simulatedTime + microseconds) > self.c[0] ):
                     if self.d[i] == "SolarCollector":
-                        r = Solar.serviceRequest()
+                        r = Solar.serviceRequest(self.c[2])
                         result.append(r)
                         simulatedTime += 40
                         mm.serviceRequest("Controller","SolarCollector","service")
