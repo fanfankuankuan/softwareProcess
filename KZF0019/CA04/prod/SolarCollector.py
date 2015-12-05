@@ -13,10 +13,11 @@ class SolarCollector(object):
         if not(isinstance(environment, En.Environment)):
             raise ValueError("device.configure:  file is invalid")
         self.env = environment
-        print En.Environment.getTime(self)
+        #print En.Environment.getTime(self)
         return True
     def serviceRequest(self,minbr):
         #print minbr
+        print En.Environment.getTime()
         x= (100 - float(minbr)) / 100 * 32767
         #a = x*10
         a = int(x)
