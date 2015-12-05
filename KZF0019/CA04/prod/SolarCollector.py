@@ -16,7 +16,7 @@ class SolarCollector(object):
         return True
     def serviceRequest(self,minbr):
         
-        x= float(minbr)
+        x= (100 - float(minbr)) / 100 *32767
         a = x*10
         a = int(a)
         b = hex(a)
