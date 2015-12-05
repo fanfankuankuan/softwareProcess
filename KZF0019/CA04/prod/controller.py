@@ -120,7 +120,7 @@ class controller(object):
         Solar = So.SolarCollector()
         
         myEnv = En.Environment()
-        myEnv.incrementTime(self.c[0])
+        myEnv.incrementTime(int(microseconds))
         myEnv.getTime()
         
         #Mon = Mo.Monitor
