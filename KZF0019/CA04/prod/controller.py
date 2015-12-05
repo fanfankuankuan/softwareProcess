@@ -176,8 +176,8 @@ class controller(object):
         
         return simulatedTime + microseconds
     
-d = controller()
-f = d.initialize("abc.xml")
-z = d.run() 
+#d = controller()
+#f = d.initialize("abc.xml")
+#z = d.run() 
 #print z
 #print f
