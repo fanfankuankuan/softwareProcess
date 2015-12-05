@@ -37,8 +37,10 @@ class Monitor(object):
         self.time = 0
         self.n = 0
         return True
-    def serviceRequest(self,source,target,event):
-        
+    def serviceRequest(self,source=None,target=None,event= None):
+        if source == None or target == None or event == None:
+            return 1
+            raise ValueError("Monitor serviceRequest:  the input value is not complete.")
         self.time = self.env.getTime()
         self.fw.write(str(self.time))
         self.fw.write('\t')

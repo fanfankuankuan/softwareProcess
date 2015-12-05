@@ -122,7 +122,7 @@ class controller(object):
         
         
         myEnv = En.Environment()
-        myEnv.incrementTime(int(microseconds))
+        myEnv.StarTime(int(microseconds))
         myEnv.getTime()
         
         Solar.configure(myEnv)
