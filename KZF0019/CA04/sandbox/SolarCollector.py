@@ -15,8 +15,8 @@ class SolarCollector(object):
         self.env = environment
         #print En.Environment.getTime(self)
         return True
-    def serviceRequest(self,degradation):
-        
+    def serviceRequest(self,num):
+        degradation = int(num)
         daytime = long((23*3600+56*60+4.1)*1e6)
         RadSatellite=2*math.pi*(self.env.getTime()%daytime)/daytime
         
