@@ -14,7 +14,7 @@ class CA04Test(unittest.TestCase):
 
     def setUp(self):
         self.className = "Controller"
-        self.testController = Controller.Controller()
+        self.testController = Controller.controller()
         self.logFile = "logfile.txt"
 
     def tearDown(self):
