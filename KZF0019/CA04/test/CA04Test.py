@@ -7,7 +7,7 @@ try:
     print("\nCA04 Controller being used --- minor exception\n")
     
 except ImportError:
-    import CA03.prod.Controller as Controller
+    import CA03.prod.controller as Controller
 
 
 class CA04Test(unittest.TestCase):
