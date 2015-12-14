@@ -82,22 +82,22 @@ class controller(object):
         a3 = 0
        
     
-        if len(self.b) == 4 and len(self.c) == 4 and len(self.a) == 4:
-            for i in range(4):
-                if self.b[i] == "Environment" or "Monitor" or "StarSensor" or "Device":
-                    a1 = a1 + 1
-                if self.a[i] == "rotationalPeriod" or "logFile" or "fieldOfView" or "starFile":
-                    a2 = a2 + 1
-                if self.c[i] == "10000000" or "logfile.txt" or "starFile":
-                    a3 = a3 + 1
-            if not a1 == 4:
-                raise ValueError("Controller.intialize:  the information of component is missing")
-            if not a2 == 4:
-                raise ValueError("Controller.intialize:  the information of name is missing")
-            if not a3 == 4:
-                raise ValueError("Controller.intialize:  the information of parm is missing") 
-        else :
-            raise ValueError("Controller.initialize:  the file missed component.")
+#         if len(self.b) == 4 and len(self.c) == 4 and len(self.a) == 4:
+#             for i in range(4):
+#                 if self.b[i] == "Environment" or "Monitor" or "StarSensor" or "Device":
+#                     a1 = a1 + 1
+#                 if self.a[i] == "rotationalPeriod" or "logFile" or "fieldOfView" or "starFile":
+#                     a2 = a2 + 1
+#                 if self.c[i] == "10000000" or "logfile.txt" or "starFile":
+#                     a3 = a3 + 1
+#             if not a1 == 4:
+#                 raise ValueError("Controller.intialize:  the information of component is missing")
+#             if not a2 == 4:
+#                 raise ValueError("Controller.intialize:  the information of name is missing")
+#             if not a3 == 4:
+#                 raise ValueError("Controller.intialize:  the information of parm is missing") 
+#         else :
+#             raise ValueError("Controller.initialize:  the file missed component.")
         
                 
         return self.d
