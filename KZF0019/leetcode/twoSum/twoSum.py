@@ -19,6 +19,6 @@ class Solution(object):
 #                         print j+1
 #                         #return i+1,j+1
 
-nu = [1,2,3,4]
+nu = [1,2,3,4,5]
 r = Solution()
 read = r.twoSum(nu,4)
