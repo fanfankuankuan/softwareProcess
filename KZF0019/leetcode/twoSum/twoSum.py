@@ -10,13 +10,14 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        for i in len(nums):
-            for j in len(nums):
-                if i < j and nums[i] < nums[j]:
-                    if nums[i] + nums[j] == target:
-                        print i+1
-                        print j+1
-                        #return i+1,j+1
+        print len(nums)
+#         for i in len(nums):
+#             for j in len(nums):
+#                 if i < j and nums[i] < nums[j]:
+#                     if nums[i] + nums[j] == target:
+#                         print i+1
+#                         print j+1
+#                         #return i+1,j+1
 
 nu = [1,2,3,4]
 r = Solution()
