@@ -12,7 +12,7 @@ class Solution(object):
         """
         i = 0
         j = 0
-        for z in 4:
+        for z in 3:
             if i < j and nums[i] < nums[j]:
                 if nums[i] + nums[j] == target:
                     print i+1
