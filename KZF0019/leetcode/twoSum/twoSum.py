@@ -12,14 +12,18 @@ class Solution(object):
         """
         i = 0
         j = 0
-        li = len(nums)
-        for i in li:
-            for j in li:
-                if i < j and nums[i] < nums[j]:
-                    if nums[i] + nums[j] == target:
-                        print i+1
-                        print j+1
-                        return i+1,j+1
+        
+        for z in 10:
+            if i < j and nums[i] < nums[j]:
+                if nums[i] + nums[j] == target:
+                    print i+1
+                    print j+1
+                    #return i+1,j+1
+                    j=0
+            else: 
+                j=j+1
+                print j
+                
 
 nu = [1,2,3,4,5]
 r = Solution()
