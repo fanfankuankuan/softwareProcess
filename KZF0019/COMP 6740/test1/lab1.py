@@ -3,9 +3,9 @@ Created on Feb 11, 2016
 
 @author: KevinFAN
 '''
-import math
+
 import random
-import os
+
 
 list = []
 class lab1(object):
@@ -13,7 +13,7 @@ class lab1(object):
         file = open('lab1.txt','w')
         for r in range(1,10,1):
             for p in range(1,9,1):
-                for i in range(1,100,1):
+                for i in range(1,10,1):
                     Failure = 0
                     Success = 0
     #                 print p
@@ -32,13 +32,7 @@ class lab1(object):
                         file.writelines(st)
                     except:
                         pass
-#                     list.append(Failure)
-#             file = open('lab1.txt','w')
-#             file.write(list)
         file.close()
-#         print list
-
-
 
 start = lab1()
 run = start.num()
