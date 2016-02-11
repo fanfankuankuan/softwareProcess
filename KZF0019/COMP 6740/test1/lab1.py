@@ -12,6 +12,7 @@ import os
 list = []
 class lab1(object):
     def num(self):
+        file = open('lab1.txt','w')
         for r in range(1,10,1):
             for p in range(1,9,1):
                 for i in range(1,100,1):
@@ -28,10 +29,11 @@ class lab1(object):
                             #print Success
                         else:
                             Failure = Failure + 1
-                    list.append(Failure)
+                    file.write(Failure)
+#                     list.append(Failure)
         
-        file = open('lab1.txt','w')
-        file.write(list)
+#         file = open('lab1.txt','w')
+#         file.write(list)
         file.close()
         #print list
 
