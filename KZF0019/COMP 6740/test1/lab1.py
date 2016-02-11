@@ -7,7 +7,7 @@ import math
 import random
 import os
 
-path = os.path.expanduser(r"~/Documentslab.txt")
+
 
 list = []
 class lab1(object):
@@ -29,9 +29,11 @@ class lab1(object):
                         else:
                             Failure = Failure + 1
                     list.append(Failure)
-        with open(starFile1) as f:
-            f.write(list)
-            #print list
+        
+        file = open('lab1.txt','w')
+        file.write(list)
+        file.close()
+        #print list
 
 start = lab1()
 run = start.num()
