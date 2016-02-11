@@ -29,12 +29,9 @@ class lab1(object):
                             Failure = Failure + 1
 #                     file.write(Failure)
                     list.append(Failure)
-        
-#         file = open('lab1.txt','w')
-        try:
-            file = open('lab1.txt','w')
-            file.write(list)
-            file.close()
+#             file = open('lab1.txt','w')
+#             file.write(list)
+#             file.close()
 
 
 
