@@ -21,4 +21,4 @@ class lab1(object):
                         Success = Success +1
                     else:
                         Failure = Failure + 1
-                print (Success+Failure)
+                    print (Success+Failure)
