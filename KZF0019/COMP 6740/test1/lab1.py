@@ -27,13 +27,13 @@ class lab1(object):
                             #print Success
                         else:
                             Failure = Failure + 1
-                    file.write(Failure)
-#                     list.append(Failure)
+#                     file.write(Failure)
+                    list.append(Failure)
         
 #         file = open('lab1.txt','w')
 #         file.write(list)
-        file.close()
-        #print list
+#         file.close()
+        print list
 
 start = lab1()
 run = start.num()
