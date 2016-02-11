@@ -33,7 +33,7 @@ class lab1(object):
 #         file = open('lab1.txt','w')
         try:
             file.write(list)
-        file.close()
+            file.close()
 
 
 
