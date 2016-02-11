@@ -32,6 +32,7 @@ class lab1(object):
 #             file = open('lab1.txt','w')
 #             file.write(list)
 #             file.close()
+        print list
 
 
 
