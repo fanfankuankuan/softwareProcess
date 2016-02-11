@@ -31,9 +31,10 @@ class lab1(object):
                     list.append(Failure)
         
 #         file = open('lab1.txt','w')
-#         file.write(list)
-#         file.close()
-        print list
+        file.write(list)
+        file.close()
+
+
 
 start = lab1()
 run = start.num()
