@@ -21,7 +21,7 @@ class lab1(object):
                     v2 = float(number)/10
                     if v2 <=v:
                         Success = Success +1
-                        print Success
+                        #print Success
                     else:
                         Failure = Failure + 1
                 print Failure
