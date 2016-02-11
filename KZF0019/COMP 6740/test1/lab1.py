@@ -27,9 +27,9 @@ class lab1(object):
                             #print Success
                         else:
                             Failure = Failure + 1
-                    st = str(Failure)
+                    st = str(Failure) + '\n'
                     try:
-                        file.writelines(st + \n)
+                        file.writelines(st)
                     except:
                         pass
 #                     list.append(Failure)
