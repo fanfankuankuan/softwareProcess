@@ -13,18 +13,18 @@ class lab1(object):
             for p in range(1,9,1):
                 Failure = 0
                 Success = 0
-                print p
+#                 print p
                 v = float(p)/10
-                print v
-#                 while(Success<r):
-#                     number = random.randrange(1,10,1)
-#                     v2 = float(number)/10
-#                     if v2 < v:
-#                         Success = Success +1
-#                         #print Success
-#                     else:
-#                         Failure = Failure + 1
-#                         #print (Success+Failure)
+#                 print v
+                while(Success<r):
+                    number = random.randrange(1,10,1)
+                    v2 = float(number)/10
+                    if v2 <= v:
+                        Success = Success +1
+                        print Success
+                    else:
+                        Failure = Failure + 1
+                print Failure
 
 start = lab1()
 run = start.num()
