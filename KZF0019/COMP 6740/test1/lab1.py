@@ -7,8 +7,6 @@ import math
 import random
 import os
 
-
-
 list = []
 class lab1(object):
     def num(self):
