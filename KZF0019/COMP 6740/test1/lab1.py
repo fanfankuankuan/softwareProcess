@@ -27,6 +27,7 @@ class lab1(object):
                             #print Success
                         else:
                             Failure = Failure + 1
+                    print Failure
                     try:
                         file.write(Failure)
                     except:
