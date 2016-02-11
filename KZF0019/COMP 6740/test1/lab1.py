@@ -27,7 +27,10 @@ class lab1(object):
                             #print Success
                         else:
                             Failure = Failure + 1
-                    file.write(Failure)
+                    try:
+                        file.write(Failure)
+                    except:
+                        pass
 #                     list.append(Failure)
 #             file = open('lab1.txt','w')
 #             file.write(list)
