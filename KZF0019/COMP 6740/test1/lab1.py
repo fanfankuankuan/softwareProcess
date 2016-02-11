@@ -19,7 +19,7 @@ class lab1(object):
                 while(Success<r):
                     number = random.randrange(1,10,1)
                     v2 = float(number)/10
-                    if v2 <= v:
+                    if v2 <=v:
                         Success = Success +1
                         print Success
                     else:
