@@ -6,7 +6,7 @@ Created on Feb 11, 2016
 import math
 import random
 
-
+list = []
 class lab1(object):
     def num(self):
         for r in range(1,10,1):
@@ -25,7 +25,8 @@ class lab1(object):
                             #print Success
                         else:
                             Failure = Failure + 1
-                    print Failure
+                    list.append(Failure)
+        print list
 
 start = lab1()
 run = start.num()
