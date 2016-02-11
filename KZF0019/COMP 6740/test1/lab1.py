@@ -16,15 +16,15 @@ class lab1(object):
                 print p
                 v = float(p)/10
                 print v
-                while(Success<r):
-                    number = random.randrange(1,10,1)
-                    v2 = float(number/100)
-                    if v2 < v:
-                        Success = Success +1
-                        #print Success
-                    else:
-                        Failure = Failure + 1
-                        #print (Success+Failure)
+#                 while(Success<r):
+#                     number = random.randrange(1,10,1)
+#                     v2 = float(number)/10
+#                     if v2 < v:
+#                         Success = Success +1
+#                         #print Success
+#                     else:
+#                         Failure = Failure + 1
+#                         #print (Success+Failure)
 
 start = lab1()
 run = start.num()
