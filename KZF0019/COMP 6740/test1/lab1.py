@@ -12,7 +12,8 @@ class lab1(object):
     def num(self):
         file = open('lab1.txt','w')
         for r in range(1,10,1):
-            for p in range(1,9,1):
+#             for p in range(1,9,1):
+                p = 1
                 for i in range(1,10,1):
                     Failure = 0
                     Success = 0
