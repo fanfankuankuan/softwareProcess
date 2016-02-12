@@ -14,7 +14,7 @@ class lab1(object):
         for r in range(1,10,1):
 #             for p in range(1,9,1):
             for p in range(1,4,1):
-                for i in range(1,1000,1):
+                for i in range(1,100,1):
                     Failure = 0
                     Success = 0
     #                 print p
