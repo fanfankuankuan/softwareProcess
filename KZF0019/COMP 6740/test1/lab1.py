@@ -28,7 +28,7 @@ class lab1(object):
                             #print Success
                         else:
                             Failure = Failure + 1
-                    st = str(Failure) + ' '
+                    st = str(Failure+Success) + ' '
                     try:
                         file.writelines(st)
                     except:
