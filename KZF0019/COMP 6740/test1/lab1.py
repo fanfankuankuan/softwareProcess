@@ -10,9 +10,9 @@ class lab1(object):
     def num(self):
         file = open('lab1.txt','w')    #open a file to collect data
         #for r in range(1,10,1):      #set the value of r
-        r = 3
+        r = 3                   #set a constant value of r
         for p in range(1,9,1):   #set the value of p
-        # p=1 
+        # p=1                    #set a constant value of p
             for i in range(1,100,1):  #simulate enough times
                 Failure = 0
                 Success = 0
